@@ -101,7 +101,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">DiagnosticReporter</span></pre>
-<div class="block">An object that <a href="../../dagger/spi/BindingGraphPlugin.html" title="interface in dagger.spi"><code>BindingGraphPlugin</code></a>s can use to report diagnostics while visiting a <a href="../../dagger/model/BindingGraph.html" title="class in dagger.model"><code>BindingGraph</code></a>.
+<div class="block">An object that <a href="../../dagger/spi/BindingGraphPlugin.html" title="interface in dagger.spi"><code>BindingGraphPlugin</code></a>s can use to report diagnostics while visiting a <code>BindingGraph</code>.
 
  <p>Note: This API is still experimental and will change.</div>
 </li>
@@ -125,7 +125,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dagger/spi/DiagnosticReporter.html#reportBinding-javax.tools.Diagnostic.Kind-dagger.model.BindingGraph.MaybeBinding-java.lang.String-">reportBinding</a></span>(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-             <a href="../../dagger/model/BindingGraph.MaybeBinding.html" title="interface in dagger.model">BindingGraph.MaybeBinding</a>&nbsp;binding,
+             dagger.model.BindingGraph.MaybeBinding&nbsp;binding,
              java.lang.String&nbsp;message)</code>
 <div class="block">Reports a diagnostic for a binding or missing binding.</div>
 </td>
@@ -133,7 +133,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dagger/spi/DiagnosticReporter.html#reportBinding-javax.tools.Diagnostic.Kind-dagger.model.BindingGraph.MaybeBinding-java.lang.String-java.lang.Object-java.lang.Object...-">reportBinding</a></span>(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-             <a href="../../dagger/model/BindingGraph.MaybeBinding.html" title="interface in dagger.model">BindingGraph.MaybeBinding</a>&nbsp;binding,
+             dagger.model.BindingGraph.MaybeBinding&nbsp;binding,
              java.lang.String&nbsp;messageFormat,
              java.lang.Object&nbsp;firstArg,
              java.lang.Object...&nbsp;moreArgs)</code>
@@ -143,7 +143,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dagger/spi/DiagnosticReporter.html#reportComponent-javax.tools.Diagnostic.Kind-dagger.model.BindingGraph.ComponentNode-java.lang.String-">reportComponent</a></span>(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-               <a href="../../dagger/model/BindingGraph.ComponentNode.html" title="interface in dagger.model">BindingGraph.ComponentNode</a>&nbsp;componentNode,
+               dagger.model.BindingGraph.ComponentNode&nbsp;componentNode,
                java.lang.String&nbsp;message)</code>
 <div class="block">Reports a diagnostic for a component.</div>
 </td>
@@ -151,7 +151,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dagger/spi/DiagnosticReporter.html#reportComponent-javax.tools.Diagnostic.Kind-dagger.model.BindingGraph.ComponentNode-java.lang.String-java.lang.Object-java.lang.Object...-">reportComponent</a></span>(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-               <a href="../../dagger/model/BindingGraph.ComponentNode.html" title="interface in dagger.model">BindingGraph.ComponentNode</a>&nbsp;componentNode,
+               dagger.model.BindingGraph.ComponentNode&nbsp;componentNode,
                java.lang.String&nbsp;messageFormat,
                java.lang.Object&nbsp;firstArg,
                java.lang.Object...&nbsp;moreArgs)</code>
@@ -161,7 +161,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dagger/spi/DiagnosticReporter.html#reportDependency-javax.tools.Diagnostic.Kind-dagger.model.BindingGraph.DependencyEdge-java.lang.String-">reportDependency</a></span>(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                <a href="../../dagger/model/BindingGraph.DependencyEdge.html" title="interface in dagger.model">BindingGraph.DependencyEdge</a>&nbsp;dependencyEdge,
+                dagger.model.BindingGraph.DependencyEdge&nbsp;dependencyEdge,
                 java.lang.String&nbsp;message)</code>
 <div class="block">Reports a diagnostic for a dependency.</div>
 </td>
@@ -169,7 +169,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dagger/spi/DiagnosticReporter.html#reportDependency-javax.tools.Diagnostic.Kind-dagger.model.BindingGraph.DependencyEdge-java.lang.String-java.lang.Object-java.lang.Object...-">reportDependency</a></span>(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                <a href="../../dagger/model/BindingGraph.DependencyEdge.html" title="interface in dagger.model">BindingGraph.DependencyEdge</a>&nbsp;dependencyEdge,
+                dagger.model.BindingGraph.DependencyEdge&nbsp;dependencyEdge,
                 java.lang.String&nbsp;messageFormat,
                 java.lang.Object&nbsp;firstArg,
                 java.lang.Object...&nbsp;moreArgs)</code>
@@ -179,7 +179,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dagger/spi/DiagnosticReporter.html#reportSubcomponentFactoryMethod-javax.tools.Diagnostic.Kind-dagger.model.BindingGraph.ChildFactoryMethodEdge-java.lang.String-">reportSubcomponentFactoryMethod</a></span>(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                               <a href="../../dagger/model/BindingGraph.ChildFactoryMethodEdge.html" title="interface in dagger.model">BindingGraph.ChildFactoryMethodEdge</a>&nbsp;childFactoryMethodEdge,
+                               dagger.model.BindingGraph.ChildFactoryMethodEdge&nbsp;childFactoryMethodEdge,
                                java.lang.String&nbsp;message)</code>
 <div class="block">Reports a diagnostic for a subcomponent factory method.</div>
 </td>
@@ -187,7 +187,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../dagger/spi/DiagnosticReporter.html#reportSubcomponentFactoryMethod-javax.tools.Diagnostic.Kind-dagger.model.BindingGraph.ChildFactoryMethodEdge-java.lang.String-java.lang.Object-java.lang.Object...-">reportSubcomponentFactoryMethod</a></span>(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                               <a href="../../dagger/model/BindingGraph.ChildFactoryMethodEdge.html" title="interface in dagger.model">BindingGraph.ChildFactoryMethodEdge</a>&nbsp;childFactoryMethodEdge,
+                               dagger.model.BindingGraph.ChildFactoryMethodEdge&nbsp;childFactoryMethodEdge,
                                java.lang.String&nbsp;messageFormat,
                                java.lang.Object&nbsp;firstArg,
                                java.lang.Object...&nbsp;moreArgs)</code>
@@ -216,7 +216,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>reportComponent</h4>
 <pre>void&nbsp;reportComponent(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                     <a href="../../dagger/model/BindingGraph.ComponentNode.html" title="interface in dagger.model">BindingGraph.ComponentNode</a>&nbsp;componentNode,
+                     dagger.model.BindingGraph.ComponentNode&nbsp;componentNode,
                      java.lang.String&nbsp;message)</pre>
 <div class="block">Reports a diagnostic for a component. For non-root components, includes information about the
  path from the root component.</div>
@@ -230,7 +230,7 @@ var activeTableTab = "activeTableTab";
 <h4>reportComponent</h4>
 <pre>@FormatMethod
 void&nbsp;reportComponent(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                                   <a href="../../dagger/model/BindingGraph.ComponentNode.html" title="interface in dagger.model">BindingGraph.ComponentNode</a>&nbsp;componentNode,
+                                   dagger.model.BindingGraph.ComponentNode&nbsp;componentNode,
                                    java.lang.String&nbsp;messageFormat,
                                    java.lang.Object&nbsp;firstArg,
                                    java.lang.Object...&nbsp;moreArgs)</pre>
@@ -245,7 +245,7 @@ void&nbsp;reportComponent(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
 <li class="blockList">
 <h4>reportBinding</h4>
 <pre>void&nbsp;reportBinding(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                   <a href="../../dagger/model/BindingGraph.MaybeBinding.html" title="interface in dagger.model">BindingGraph.MaybeBinding</a>&nbsp;binding,
+                   dagger.model.BindingGraph.MaybeBinding&nbsp;binding,
                    java.lang.String&nbsp;message)</pre>
 <div class="block">Reports a diagnostic for a binding or missing binding. Includes information about how the
  binding is reachable from entry points.</div>
@@ -259,7 +259,7 @@ void&nbsp;reportComponent(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
 <h4>reportBinding</h4>
 <pre>@FormatMethod
 void&nbsp;reportBinding(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                                 <a href="../../dagger/model/BindingGraph.MaybeBinding.html" title="interface in dagger.model">BindingGraph.MaybeBinding</a>&nbsp;binding,
+                                 dagger.model.BindingGraph.MaybeBinding&nbsp;binding,
                                  java.lang.String&nbsp;messageFormat,
                                  java.lang.Object&nbsp;firstArg,
                                  java.lang.Object...&nbsp;moreArgs)</pre>
@@ -274,7 +274,7 @@ void&nbsp;reportBinding(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
 <li class="blockList">
 <h4>reportDependency</h4>
 <pre>void&nbsp;reportDependency(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                      <a href="../../dagger/model/BindingGraph.DependencyEdge.html" title="interface in dagger.model">BindingGraph.DependencyEdge</a>&nbsp;dependencyEdge,
+                      dagger.model.BindingGraph.DependencyEdge&nbsp;dependencyEdge,
                       java.lang.String&nbsp;message)</pre>
 <div class="block">Reports a diagnostic for a dependency. Includes information about how the dependency is
  reachable from entry points.</div>
@@ -288,7 +288,7 @@ void&nbsp;reportBinding(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
 <h4>reportDependency</h4>
 <pre>@FormatMethod
 void&nbsp;reportDependency(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                                    <a href="../../dagger/model/BindingGraph.DependencyEdge.html" title="interface in dagger.model">BindingGraph.DependencyEdge</a>&nbsp;dependencyEdge,
+                                    dagger.model.BindingGraph.DependencyEdge&nbsp;dependencyEdge,
                                     java.lang.String&nbsp;messageFormat,
                                     java.lang.Object&nbsp;firstArg,
                                     java.lang.Object...&nbsp;moreArgs)</pre>
@@ -303,7 +303,7 @@ void&nbsp;reportDependency(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
 <li class="blockList">
 <h4>reportSubcomponentFactoryMethod</h4>
 <pre>void&nbsp;reportSubcomponentFactoryMethod(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                                     <a href="../../dagger/model/BindingGraph.ChildFactoryMethodEdge.html" title="interface in dagger.model">BindingGraph.ChildFactoryMethodEdge</a>&nbsp;childFactoryMethodEdge,
+                                     dagger.model.BindingGraph.ChildFactoryMethodEdge&nbsp;childFactoryMethodEdge,
                                      java.lang.String&nbsp;message)</pre>
 <div class="block">Reports a diagnostic for a subcomponent factory method.</div>
 </li>
@@ -316,7 +316,7 @@ void&nbsp;reportDependency(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
 <h4>reportSubcomponentFactoryMethod</h4>
 <pre>@FormatMethod
 void&nbsp;reportSubcomponentFactoryMethod(javax.tools.Diagnostic.Kind&nbsp;diagnosticKind,
-                                                   <a href="../../dagger/model/BindingGraph.ChildFactoryMethodEdge.html" title="interface in dagger.model">BindingGraph.ChildFactoryMethodEdge</a>&nbsp;childFactoryMethodEdge,
+                                                   dagger.model.BindingGraph.ChildFactoryMethodEdge&nbsp;childFactoryMethodEdge,
                                                    java.lang.String&nbsp;messageFormat,
                                                    java.lang.Object&nbsp;firstArg,
                                                    java.lang.Object...&nbsp;moreArgs)</pre>

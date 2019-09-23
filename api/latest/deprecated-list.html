@@ -73,8 +73,6 @@
 <h2 title="Contents">Contents</h2>
 <ul>
 <li><a href="#class">Deprecated Classes</a></li>
-<li><a href="#method">Deprecated Methods</a></li>
-<li><a href="#constructor">Deprecated Constructors</a></li>
 </ul>
 </div>
 <div class="contentContainer"><a name="class">
@@ -102,81 +100,6 @@
 <td class="colOne"><a href="dagger/android/DaggerFragment.html" title="class in dagger.android">dagger.android.DaggerFragment</a>
 <div class="block"><span class="deprecationComment">Framework fragments are deprecated in Android P; prefer <code>dagger.android.support.DaggerFragment</code> to use a support-library-friendly <code>dagger.android</code> fragment implementation.</span></div>
 </td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<a name="method">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<table class="deprecatedSummary" border="0" cellpadding="3" cellspacing="0" summary="Deprecated Methods table, listing deprecated methods, and an explanation">
-<caption><span>Deprecated Methods</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Method and Description</th>
-</tr>
-<tbody>
-<tr class="altColor">
-<td class="colOne"><a href="dagger/model/BindingGraph.MissingBinding.html#binding--">dagger.model.BindingGraph.MissingBinding.binding()</a>
-<div class="block"><span class="deprecationComment">This always returns <code>Optional.empty()</code>.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="dagger/model/Binding.html#binding--">dagger.model.Binding.binding()</a>
-<div class="block"><span class="deprecationComment">This always returns <code>Optional.of(this)</code>.</span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="dagger/model/Key.MultibindingContributionIdentifier.html#bindingElement--">dagger.model.Key.MultibindingContributionIdentifier.bindingElement()</a>
-<div class="block"><span class="deprecationComment">This is only meant to be called from code in <code>dagger.internal.codegen</code>.
- It is not part of a specified API and may change at any point.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="dagger/model/BindingGraph.html#isModuleBindingGraph--">dagger.model.BindingGraph.isModuleBindingGraph()</a>
-<div class="block"><span class="deprecationComment">use <a href="dagger/model/BindingGraph.html#isFullBindingGraph--"><code>BindingGraph.isFullBindingGraph()</code></a> to tell if this is a full binding graph, or
-     <a href="dagger/model/BindingGraph.ComponentNode.html#isRealComponent--"><code>rootComponentNode().isRealComponent()</code></a> to tell if
-     the root component node is really a component or derived from a module. Dagger can generate
-     full binding graphs for components and subcomponents as well as modules.</span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="dagger/model/BindingGraph.html#isPartialBindingGraph--">dagger.model.BindingGraph.isPartialBindingGraph()</a>
-<div class="block"><span class="deprecationComment">use <a href="dagger/model/BindingGraph.ComponentNode.html#isSubcomponent--"><code>rootComponentNode().isSubcomponent()</code></a>
-     instead</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="dagger/model/Key.MultibindingContributionIdentifier.html#module--">dagger.model.Key.MultibindingContributionIdentifier.module()</a>
-<div class="block"><span class="deprecationComment">This is only meant to be called from code in <code>dagger.internal.codegen</code>.
- It is not part of a specified API and may change at any point.</span></div>
-</td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<a name="constructor">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<table class="deprecatedSummary" border="0" cellpadding="3" cellspacing="0" summary="Deprecated Constructors table, listing deprecated constructors, and an explanation">
-<caption><span>Deprecated Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tbody>
-<tr class="altColor">
-<td class="colOne"><a href="dagger/model/Key.MultibindingContributionIdentifier.html#MultibindingContributionIdentifier-javax.lang.model.element.ExecutableElement-javax.lang.model.element.TypeElement-">dagger.model.Key.MultibindingContributionIdentifier(ExecutableElement, TypeElement)</a>
-<div class="block"><span class="deprecationComment">This is only meant to be called from code in <code>dagger.internal.codegen</code>.
- It is not part of a specified API and may change at any point.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="dagger/model/Key.MultibindingContributionIdentifier.html#MultibindingContributionIdentifier-java.lang.String-java.lang.String-">dagger.model.Key.MultibindingContributionIdentifier(String, String)</a></td>
 </tr>
 </tbody>
 </table>

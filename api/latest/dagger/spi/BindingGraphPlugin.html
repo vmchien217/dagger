@@ -101,7 +101,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">BindingGraphPlugin</span></pre>
-<div class="block">A pluggable visitor for <a href="../../dagger/model/BindingGraph.html" title="class in dagger.model"><code>BindingGraph</code></a>.
+<div class="block">A pluggable visitor for <code>BindingGraph</code>.
 
  <p>Note: This is still experimental and will change.</div>
 </li>
@@ -162,7 +162,7 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../dagger/spi/BindingGraphPlugin.html#visitGraph-dagger.model.BindingGraph-dagger.spi.DiagnosticReporter-">visitGraph</a></span>(<a href="../../dagger/model/BindingGraph.html" title="class in dagger.model">BindingGraph</a>&nbsp;bindingGraph,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../dagger/spi/BindingGraphPlugin.html#visitGraph-dagger.model.BindingGraph-dagger.spi.DiagnosticReporter-">visitGraph</a></span>(dagger.model.BindingGraph&nbsp;bindingGraph,
           <a href="../../dagger/spi/DiagnosticReporter.html" title="interface in dagger.spi">DiagnosticReporter</a>&nbsp;diagnosticReporter)</code>
 <div class="block">Called once for each valid root binding graph encountered by the Dagger processor.</div>
 </td>
@@ -188,7 +188,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>visitGraph</h4>
-<pre>void&nbsp;visitGraph(<a href="../../dagger/model/BindingGraph.html" title="class in dagger.model">BindingGraph</a>&nbsp;bindingGraph,
+<pre>void&nbsp;visitGraph(dagger.model.BindingGraph&nbsp;bindingGraph,
                 <a href="../../dagger/spi/DiagnosticReporter.html" title="interface in dagger.spi">DiagnosticReporter</a>&nbsp;diagnosticReporter)</pre>
 <div class="block">Called once for each valid root binding graph encountered by the Dagger processor. May report
  diagnostics using <code>diagnosticReporter</code>.</div>
