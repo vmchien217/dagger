@@ -1,0 +1,10 @@
+dagger
+dagger.android
+dagger.android.internal
+dagger.android.support
+dagger.grpc.server
+dagger.grpc.server.processor
+dagger.multibindings
+dagger.producers
+dagger.producers.monitoring
+dagger.spi
