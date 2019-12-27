@@ -38,7 +38,7 @@ def pom_file(name, targets, artifact_name, artifact_id, packaging = None, **kwar
         **kwargs
     )
 
-POM_VERSION = "${project.version}"
+POM_VERSION = "2.25.4"
 
 def gen_maven_artifact(
         name,
