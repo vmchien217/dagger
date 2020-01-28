@@ -100,11 +100,7 @@ public @interface <span class="memberNameLabel">AndroidInjectionKey</span></pre>
 <div class="block"><a href="../../dagger/MapKey.html" title="annotation in dagger"><code>MapKey</code></a> annotation to key <a href="../../dagger/android/AndroidInjector.Factory.html" title="interface in dagger.android"><code>AndroidInjector.Factory</code></a> bindings. The <a href="../../dagger/android/AndroidInjectionKey.html#value--">value</a> of the annotation is the canonical name of the class that will be passed to
  <a href="../../dagger/android/AndroidInjector.html#inject-T-"><code>AndroidInjector.inject(Object)</code></a>.
 
- <p>All key strings will be obfuscated by ProGuard/R8/AppReduce if the named class is obfuscated.
-
- <p>
- You should only use this annotation if you are using a version of ProGuard/R8/AppReduce that
- supports the <code>-identifiernamestring</code> flag.</div>
+ <p>All key strings will be obfuscated by ProGuard/R8 if the named class is obfuscated.</div>
 </li>
 </ul>
 </div>
