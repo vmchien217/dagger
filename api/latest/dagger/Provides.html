@@ -106,7 +106,7 @@ public @interface <span class="memberNameLabel">Provides</span></pre>
  <code>@Provides</code> methods that return <code>null</code> will throw a <code>NullPointerException</code>
  immediately thereafter. <code>@Provides</code> methods may opt into allowing <code>null</code> by
  annotating the method with any <code>@Nullable</code> annotation like
- <code>javax.annotation.Nullable</code> or <code>android.support.annotation.Nullable</code>.
+ <code>javax.annotation.Nullable</code> or <code>androidx.annotation.Nullable</code>.
 
  <p>If a <code>@Provides</code> method is marked <code>@Nullable</code>, Dagger will <em>only</em>
  allow injection into sites that are marked <code>@Nullable</code> as well. A component that
