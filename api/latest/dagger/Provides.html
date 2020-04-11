@@ -102,7 +102,7 @@ public @interface <span class="memberNameLabel">Provides</span></pre>
 
  <h3>Nullability</h3>
 
- <p>Dagger forbids injecting <code>null</code> by default. Component implemenations that invoke
+ <p>Dagger forbids injecting <code>null</code> by default. Component implementations that invoke
  <code>@Provides</code> methods that return <code>null</code> will throw a <code>NullPointerException</code>
  immediately thereafter. <code>@Provides</code> methods may opt into allowing <code>null</code> by
  annotating the method with any <code>@Nullable</code> annotation like
