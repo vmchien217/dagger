@@ -68,14 +68,48 @@
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a name="I:A">
+<div class="contentContainer"><a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<a name="I:A">
 <!--   -->
 </a>
 <h2 class="title">A</h2>
 <dl>
+<dt><a href="dagger/hilt/android/components/ActivityComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ActivityComponent</span></a> - Interface in <a href="dagger/hilt/android/components/package-summary.html">dagger.hilt.android.components</a></dt>
+<dd>
+<div class="block">A Hilt component that has the lifetime of the activity.</div>
+</dd>
+<dt><a href="dagger/hilt/android/qualifiers/ActivityContext.html" title="annotation in dagger.hilt.android.qualifiers"><span class="typeNameLink">ActivityContext</span></a> - Annotation Type in <a href="dagger/hilt/android/qualifiers/package-summary.html">dagger.hilt.android.qualifiers</a></dt>
+<dd>
+<div class="block">Annotation for a <code>Context</code> that corresponds to the activity.</div>
+</dd>
+<dt><a href="dagger/hilt/android/components/ActivityRetainedComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ActivityRetainedComponent</span></a> - Interface in <a href="dagger/hilt/android/components/package-summary.html">dagger.hilt.android.components</a></dt>
+<dd>
+<div class="block">A Hilt component that has the lifetime of a configuration surviving activity.</div>
+</dd>
+<dt><a href="dagger/hilt/android/scopes/ActivityRetainedScoped.html" title="annotation in dagger.hilt.android.scopes"><span class="typeNameLink">ActivityRetainedScoped</span></a> - Annotation Type in <a href="dagger/hilt/android/scopes/package-summary.html">dagger.hilt.android.scopes</a></dt>
+<dd>
+<div class="block">Scope annotation for bindings that should exist for the life of an activity, surviving
+ configuration.</div>
+</dd>
+<dt><a href="dagger/hilt/android/scopes/ActivityScoped.html" title="annotation in dagger.hilt.android.scopes"><span class="typeNameLink">ActivityScoped</span></a> - Annotation Type in <a href="dagger/hilt/android/scopes/package-summary.html">dagger.hilt.android.scopes</a></dt>
+<dd>
+<div class="block">Scope annotation for bindings that should exist for the life of an activity.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="dagger/producers/monitoring/ProducerMonitor.html#addCallbackTo-com.google.common.util.concurrent.ListenableFuture-">addCallbackTo(ListenableFuture&lt;T&gt;)</a></span> - Method in class dagger.producers.monitoring.<a href="dagger/producers/monitoring/ProducerMonitor.html" title="class in dagger.producers.monitoring">ProducerMonitor</a></dt>
 <dd>
 <div class="block">Adds this monitor's completion methods as a callback to the future.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/testing/OnComponentReadyRunner.html#addListener-android.content.Context-java.lang.Class-dagger.hilt.android.testing.OnComponentReadyRunner.OnComponentReadyListener-">addListener(Context, Class&lt;T&gt;, OnComponentReadyRunner.OnComponentReadyListener&lt;T&gt;)</a></span> - Static method in class dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/OnComponentReadyRunner.html" title="class in dagger.hilt.android.testing">OnComponentReadyRunner</a></dt>
+<dd>
+<div class="block">Must be called on the test thread, before the Statement is evaluated.</div>
+</dd>
+<dt><a href="dagger/hilt/migration/AliasOf.html" title="annotation in dagger.hilt.migration"><span class="typeNameLink">AliasOf</span></a> - Annotation Type in <a href="dagger/hilt/migration/package-summary.html">dagger.hilt.migration</a></dt>
+<dd>
+<div class="block">Defines an alias between an existing Hilt scope and the annotated scope.</div>
+</dd>
+<dt><a href="dagger/hilt/android/AndroidEntryPoint.html" title="annotation in dagger.hilt.android"><span class="typeNameLink">AndroidEntryPoint</span></a> - Annotation Type in <a href="dagger/hilt/android/package-summary.html">dagger.hilt.android</a></dt>
+<dd>
+<div class="block">Marks an Android component class to be setup for injection with the standard Hilt Dagger Android
+ components.</div>
 </dd>
 <dt><a href="dagger/android/AndroidInjection.html" title="class in dagger.android"><span class="typeNameLink">AndroidInjection</span></a> - Class in <a href="dagger/android/package-summary.html">dagger.android</a></dt>
 <dd>
@@ -142,11 +176,21 @@
 </dd>
 <dt><span class="memberNameLink"><a href="dagger/grpc/server/processor/GrpcServiceProcessor.html#annotations--">annotations()</a></span> - Method in class dagger.grpc.server.processor.<a href="dagger/grpc/server/processor/GrpcServiceProcessor.html" title="class in dagger.grpc.server.processor">GrpcServiceProcessor</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/android/components/ApplicationComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ApplicationComponent</span></a> - Interface in <a href="dagger/hilt/android/components/package-summary.html">dagger.hilt.android.components</a></dt>
+<dd>
+<div class="block">A Hilt component that has the lifetime of the application.</div>
+</dd>
+<dt><a href="dagger/hilt/android/qualifiers/ApplicationContext.html" title="annotation in dagger.hilt.android.qualifiers"><span class="typeNameLink">ApplicationContext</span></a> - Annotation Type in <a href="dagger/hilt/android/qualifiers/package-summary.html">dagger.hilt.android.qualifiers</a></dt>
+<dd>
+<div class="block">Annotation for an Application Context dependency.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="dagger/android/DaggerApplication.html#applicationInjector--">applicationInjector()</a></span> - Method in class dagger.android.<a href="dagger/android/DaggerApplication.html" title="class in dagger.android">DaggerApplication</a></dt>
 <dd>
 <div class="block">Implementations should return an <a href="dagger/android/AndroidInjector.html" title="interface in dagger.android"><code>AndroidInjector</code></a> for the concrete <a href="dagger/android/DaggerApplication.html" title="class in dagger.android"><code>DaggerApplication</code></a>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dagger/android/support/DaggerApplication.html#applicationInjector--">applicationInjector()</a></span> - Method in class dagger.android.support.<a href="dagger/android/support/DaggerApplication.html" title="class in dagger.android.support">DaggerApplication</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/testing/HiltAndroidRule.html#apply-org.junit.runners.model.Statement-org.junit.runner.Description-">apply(Statement, Description)</a></span> - Method in class dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/HiltAndroidRule.html" title="class in dagger.hilt.android.testing">HiltAndroidRule</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a name="I:B">
@@ -154,6 +198,10 @@
 </a>
 <h2 class="title">B</h2>
 <dl>
+<dt><a href="dagger/hilt/android/testing/BindElementsIntoSet.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">BindElementsIntoSet</span></a> - Annotation Type in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
+<dd>
+<div class="block">An annotation that can be used on a test field to contribute the value into the <a href="dagger/hilt/android/components/ApplicationComponent.html" title="interface in dagger.hilt.android.components"><code>ApplicationComponent</code></a> as an <a href="dagger/multibindings/ElementsIntoSet.html" title="annotation in dagger.multibindings"><code>ElementsIntoSet</code></a> for the given type.</div>
+</dd>
 <dt><a href="dagger/spi/BindingGraphPlugin.html" title="interface in dagger.spi"><span class="typeNameLink">BindingGraphPlugin</span></a> - Interface in <a href="dagger/spi/package-summary.html">dagger.spi</a></dt>
 <dd>
 <div class="block">A pluggable visitor for <code>BindingGraph</code>.</div>
@@ -180,6 +228,20 @@
 <dd>
 <div class="block">Annotates methods that declare bindings for <code>Optional</code> containers of values from bindings
  that may or may not be present in the component.</div>
+</dd>
+<dt><a href="dagger/hilt/android/testing/BindValue.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">BindValue</span></a> - Annotation Type in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
+<dd>
+<div class="block">An annotation that can be used on a test field to contribute the value into the <a href="dagger/hilt/android/components/ApplicationComponent.html" title="interface in dagger.hilt.android.components"><code>ApplicationComponent</code></a>.</div>
+</dd>
+<dt><a href="dagger/hilt/android/testing/BindValueIntoMap.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">BindValueIntoMap</span></a> - Annotation Type in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
+<dd>
+<div class="block">An annotation that can be used on a test field to contribute the value into the <a href="dagger/hilt/android/components/ApplicationComponent.html" title="interface in dagger.hilt.android.components"><code>ApplicationComponent</code></a> as an <a href="dagger/multibindings/IntoMap.html" title="annotation in dagger.multibindings"><code>IntoMap</code></a>
+ for the given type.</div>
+</dd>
+<dt><a href="dagger/hilt/android/testing/BindValueIntoSet.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">BindValueIntoSet</span></a> - Annotation Type in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
+<dd>
+<div class="block">An annotation that can be used on a test field to contribute the value into the <a href="dagger/hilt/android/components/ApplicationComponent.html" title="interface in dagger.hilt.android.components"><code>ApplicationComponent</code></a> as an <a href="dagger/multibindings/IntoSet.html" title="annotation in dagger.multibindings"><code>IntoSet</code></a>
+ for the given type.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dagger/android/AndroidInjector.Builder.html#build--">build()</a></span> - Method in class dagger.android.<a href="dagger/android/AndroidInjector.Builder.html" title="class in dagger.android">AndroidInjector.Builder</a></dt>
 <dd>
@@ -285,6 +347,24 @@
 <dt><a href="dagger/grpc/server/package-summary.html">dagger.grpc.server</a> - package dagger.grpc.server</dt>
 <dd>&nbsp;</dd>
 <dt><a href="dagger/grpc/server/processor/package-summary.html">dagger.grpc.server.processor</a> - package dagger.grpc.server.processor</dt>
+<dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/package-summary.html">dagger.hilt</a> - package dagger.hilt</dt>
+<dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/android/package-summary.html">dagger.hilt.android</a> - package dagger.hilt.android</dt>
+<dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/android/components/package-summary.html">dagger.hilt.android.components</a> - package dagger.hilt.android.components</dt>
+<dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/android/migration/package-summary.html">dagger.hilt.android.migration</a> - package dagger.hilt.android.migration</dt>
+<dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/android/qualifiers/package-summary.html">dagger.hilt.android.qualifiers</a> - package dagger.hilt.android.qualifiers</dt>
+<dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/android/scopes/package-summary.html">dagger.hilt.android.scopes</a> - package dagger.hilt.android.scopes</dt>
+<dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a> - package dagger.hilt.android.testing</dt>
+<dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/codegen/package-summary.html">dagger.hilt.codegen</a> - package dagger.hilt.codegen</dt>
+<dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/migration/package-summary.html">dagger.hilt.migration</a> - package dagger.hilt.migration</dt>
 <dd>&nbsp;</dd>
 <dt><a href="dagger/multibindings/package-summary.html">dagger.multibindings</a> - package dagger.multibindings</dt>
 <dd>
@@ -402,6 +482,14 @@
 </dd>
 <dt><span class="memberNameLink"><a href="dagger/android/DaggerService.html#DaggerService--">DaggerService()</a></span> - Constructor for class dagger.android.<a href="dagger/android/DaggerService.html" title="class in dagger.android">DaggerService</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/DefineComponent.html" title="annotation in dagger.hilt"><span class="typeNameLink">DefineComponent</span></a> - Annotation Type in <a href="dagger/hilt/package-summary.html">dagger.hilt</a></dt>
+<dd>
+<div class="block">Defines a Hilt component.</div>
+</dd>
+<dt><a href="dagger/hilt/DefineComponent.Builder.html" title="annotation in dagger.hilt"><span class="typeNameLink">DefineComponent.Builder</span></a> - Annotation Type in <a href="dagger/hilt/package-summary.html">dagger.hilt</a></dt>
+<dd>
+<div class="block">Defines a builder for a Hilt component.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="dagger/producers/monitoring/TimingRecorders.html#delegatingProductionComponentTimingRecorderFactory-java.util.Collection-">delegatingProductionComponentTimingRecorderFactory(Collection&lt;ProductionComponentTimingRecorder.Factory&gt;)</a></span> - Static method in class dagger.producers.monitoring.<a href="dagger/producers/monitoring/TimingRecorders.html" title="class in dagger.producers.monitoring">TimingRecorders</a></dt>
 <dd>
 <div class="block">Returns a timing recorder factory that delegates to the given factories, and ensures that any
@@ -411,6 +499,11 @@
 <dt><a href="dagger/spi/DiagnosticReporter.html" title="interface in dagger.spi"><span class="typeNameLink">DiagnosticReporter</span></a> - Interface in <a href="dagger/spi/package-summary.html">dagger.spi</a></dt>
 <dd>
 <div class="block">An object that <a href="dagger/spi/BindingGraphPlugin.html" title="interface in dagger.spi"><code>BindingGraphPlugin</code></a>s can use to report diagnostics while visiting a <code>BindingGraph</code>.</div>
+</dd>
+<dt><a href="dagger/hilt/migration/DisableInstallInCheck.html" title="annotation in dagger.hilt.migration"><span class="typeNameLink">DisableInstallInCheck</span></a> - Annotation Type in <a href="dagger/hilt/migration/package-summary.html">dagger.hilt.migration</a></dt>
+<dd>
+<div class="block">Use this annotation on modules to suppress the error of a missing <a href="dagger/hilt/InstallIn.html" title="annotation in dagger.hilt"><code>InstallIn</code></a>
+ annotation.</div>
 </dd>
 <dt><a href="dagger/android/DispatchingAndroidInjector.html" title="class in dagger.android"><span class="typeNameLink">DispatchingAndroidInjector</span></a>&lt;<a href="dagger/android/DispatchingAndroidInjector.html" title="type parameter in DispatchingAndroidInjector">T</a>&gt; - Class in <a href="dagger/android/package-summary.html">dagger.android</a></dt>
 <dd>
@@ -429,6 +522,18 @@
 <dt><a href="dagger/multibindings/ElementsIntoSet.html" title="annotation in dagger.multibindings"><span class="typeNameLink">ElementsIntoSet</span></a> - Annotation Type in <a href="dagger/multibindings/package-summary.html">dagger.multibindings</a></dt>
 <dd>
 <div class="block">The method's return type is <code>Set&lt;T&gt;</code> and all values are contributed to the set.</div>
+</dd>
+<dt><a href="dagger/hilt/EntryPoint.html" title="annotation in dagger.hilt"><span class="typeNameLink">EntryPoint</span></a> - Annotation Type in <a href="dagger/hilt/package-summary.html">dagger.hilt</a></dt>
+<dd>
+<div class="block">Annotation for marking an interface as an entry point into a generated component.</div>
+</dd>
+<dt><a href="dagger/hilt/android/EntryPointAccessors.html" title="class in dagger.hilt.android"><span class="typeNameLink">EntryPointAccessors</span></a> - Class in <a href="dagger/hilt/android/package-summary.html">dagger.hilt.android</a></dt>
+<dd>
+<div class="block">Static utility methods for dealing with entry points for standard Android components.</div>
+</dd>
+<dt><a href="dagger/hilt/EntryPoints.html" title="class in dagger.hilt"><span class="typeNameLink">EntryPoints</span></a> - Class in <a href="dagger/hilt/package-summary.html">dagger.hilt</a></dt>
+<dd>
+<div class="block">Static utility methods for accessing objects through entry points.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dagger/producers/monitoring/ProducerToken.html#equals-java.lang.Object-">equals(Object)</a></span> - Method in class dagger.producers.monitoring.<a href="dagger/producers/monitoring/ProducerToken.html" title="class in dagger.producers.monitoring">ProducerToken</a></dt>
 <dd>
@@ -462,12 +567,48 @@
 <dd>
 <div class="block">Qualifies some per-service types provided by <a href="dagger/Module.html" title="annotation in dagger"><code>Module</code></a>s generated by <a href="dagger/grpc/server/GrpcService.html" title="annotation in dagger.grpc.server"><code>GrpcService</code></a>.</div>
 </dd>
+<dt><a href="dagger/hilt/android/components/FragmentComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">FragmentComponent</span></a> - Interface in <a href="dagger/hilt/android/components/package-summary.html">dagger.hilt.android.components</a></dt>
+<dd>
+<div class="block">A Hilt component that has the lifetime of the fragment.</div>
+</dd>
+<dt><a href="dagger/hilt/android/scopes/FragmentScoped.html" title="annotation in dagger.hilt.android.scopes"><span class="typeNameLink">FragmentScoped</span></a> - Annotation Type in <a href="dagger/hilt/android/scopes/package-summary.html">dagger.hilt.android.scopes</a></dt>
+<dd>
+<div class="block">Scope annotation for bindings that should exist for the life of a fragment.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/EntryPointAccessors.html#fromActivity-android.app.Activity-java.lang.Class-">fromActivity(Activity, Class&lt;T&gt;)</a></span> - Static method in class dagger.hilt.android.<a href="dagger/hilt/android/EntryPointAccessors.html" title="class in dagger.hilt.android">EntryPointAccessors</a></dt>
+<dd>
+<div class="block">Returns the entry point interface from an activity.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/EntryPointAccessors.html#fromApplication-android.content.Context-java.lang.Class-">fromApplication(Context, Class&lt;T&gt;)</a></span> - Static method in class dagger.hilt.android.<a href="dagger/hilt/android/EntryPointAccessors.html" title="class in dagger.hilt.android">EntryPointAccessors</a></dt>
+<dd>
+<div class="block">Returns the entry point interface from an application.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/EntryPointAccessors.html#fromFragment-androidx.fragment.app.Fragment-java.lang.Class-">fromFragment(Fragment, Class&lt;T&gt;)</a></span> - Static method in class dagger.hilt.android.<a href="dagger/hilt/android/EntryPointAccessors.html" title="class in dagger.hilt.android">EntryPointAccessors</a></dt>
+<dd>
+<div class="block">Returns the entry point interface from a fragment.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/EntryPointAccessors.html#fromView-android.view.View-java.lang.Class-">fromView(View, Class&lt;T&gt;)</a></span> - Static method in class dagger.hilt.android.<a href="dagger/hilt/android/EntryPointAccessors.html" title="class in dagger.hilt.android">EntryPointAccessors</a></dt>
+<dd>
+<div class="block">Returns the entry point interface from a view.</div>
+</dd>
 </dl>
 <a name="I:G">
 <!--   -->
 </a>
 <h2 class="title">G</h2>
 <dl>
+<dt><a href="dagger/hilt/GenerateComponents.html" title="annotation in dagger.hilt"><span class="typeNameLink">GenerateComponents</span></a> - Annotation Type in <a href="dagger/hilt/package-summary.html">dagger.hilt</a></dt>
+<dd>
+<div class="block">Annotation for marking the root of a build where the Dagger components should be generated.</div>
+</dd>
+<dt><a href="dagger/hilt/GeneratesRootInput.html" title="annotation in dagger.hilt"><span class="typeNameLink">GeneratesRootInput</span></a> - Annotation Type in <a href="dagger/hilt/package-summary.html">dagger.hilt</a></dt>
+<dd>
+<div class="block">For annotating annotations that generate input for the <a href="dagger/hilt/GenerateComponents.html" title="annotation in dagger.hilt"><code>GenerateComponents</code></a>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/EntryPoints.html#get-java.lang.Object-java.lang.Class-">get(Object, Class&lt;T&gt;)</a></span> - Static method in class dagger.hilt.<a href="dagger/hilt/EntryPoints.html" title="class in dagger.hilt">EntryPoints</a></dt>
+<dd>
+<div class="block">Returns the entry point interface given a component or component manager.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="dagger/Lazy.html#get--">get()</a></span> - Method in interface dagger.<a href="dagger/Lazy.html" title="interface in dagger">Lazy</a></dt>
 <dd>
 <div class="block">Return the underlying value, computing the value if necessary.</div>
@@ -480,6 +621,8 @@
 <dd>
 <div class="block">Returns a future representing a running task that produces a value.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/testing/OnComponentReadyRunner.OnComponentReadyRunnerHolder.html#getOnComponentReadyRunner--">getOnComponentReadyRunner()</a></span> - Method in interface dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/OnComponentReadyRunner.OnComponentReadyRunnerHolder.html" title="interface in dagger.hilt.android.testing">OnComponentReadyRunner.OnComponentReadyRunnerHolder</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="dagger/grpc/server/ProxyServerCallHandler.ServiceDefinitionFactory.html#getServiceDefinition-io.grpc.Metadata-">getServiceDefinition(Metadata)</a></span> - Method in interface dagger.grpc.server.<a href="dagger/grpc/server/ProxyServerCallHandler.ServiceDefinitionFactory.html" title="interface in dagger.grpc.server">ProxyServerCallHandler.ServiceDefinitionFactory</a></dt>
 <dd>
 <div class="block">Returns a service definition that contains a <code>ServerCallHandler</code> for the
@@ -520,6 +663,23 @@
 <dt><span class="memberNameLink"><a href="dagger/producers/Produced.html#hashCode--">hashCode()</a></span> - Method in class dagger.producers.<a href="dagger/producers/Produced.html" title="class in dagger.producers">Produced</a></dt>
 <dd>
 <div class="block">Returns an appropriate hash code to match <a href="dagger/producers/Produced.html#equals-java.lang.Object-"><code>Produced.equals(Object)</code></a>.</div>
+</dd>
+<dt><a href="dagger/hilt/android/HiltAndroidApp.html" title="annotation in dagger.hilt.android"><span class="typeNameLink">HiltAndroidApp</span></a> - Annotation Type in <a href="dagger/hilt/android/package-summary.html">dagger.hilt.android</a></dt>
+<dd>
+<div class="block">Annotation for marking the <code>Application</code> class where the Dagger components
+ should be generated.</div>
+</dd>
+<dt><a href="dagger/hilt/android/testing/HiltAndroidRule.html" title="class in dagger.hilt.android.testing"><span class="typeNameLink">HiltAndroidRule</span></a> - Class in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
+<dd>
+<div class="block">A <code>TestRule</code> for Hilt that can be used with JVM or Instrumentation tests.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/testing/HiltAndroidRule.html#HiltAndroidRule-java.lang.Object-">HiltAndroidRule(Object)</a></span> - Constructor for class dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/HiltAndroidRule.html" title="class in dagger.hilt.android.testing">HiltAndroidRule</a></dt>
+<dd>
+<div class="block">Creates a new instance of the rules.</div>
+</dd>
+<dt><a href="dagger/hilt/android/testing/HiltAndroidTest.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">HiltAndroidTest</span></a> - Annotation Type in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
+<dd>
+<div class="block">Annotation used for marking an Android emulator tests that require injection.</div>
 </dd>
 </dl>
 <a name="I:I">
@@ -593,6 +753,8 @@
 <div class="block">Injects <code>fragment</code> if an associated <a href="dagger/android/AndroidInjector.html" title="interface in dagger.android"><code>AndroidInjector</code></a> implementation can be found,
  otherwise throws an <code>IllegalArgumentException</code>.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/testing/HiltAndroidRule.html#inject--">inject()</a></span> - Method in class dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/HiltAndroidRule.html" title="class in dagger.hilt.android.testing">HiltAndroidRule</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="dagger/MembersInjector.html#injectMembers-T-">injectMembers(T)</a></span> - Method in interface dagger.<a href="dagger/MembersInjector.html" title="interface in dagger">MembersInjector</a></dt>
 <dd>
 <div class="block">Injects dependencies into the fields and methods of <code>instance</code>.</div>
@@ -601,6 +763,11 @@
 <dd>
 <div class="block">Installing this module into a <code>@Singleton</code> component means the component can
  provide a <code>Server</code> that serves in-process requests.</div>
+</dd>
+<dt><a href="dagger/hilt/InstallIn.html" title="annotation in dagger.hilt"><span class="typeNameLink">InstallIn</span></a> - Annotation Type in <a href="dagger/hilt/package-summary.html">dagger.hilt</a></dt>
+<dd>
+<div class="block">An annotation that declares which component(s) the annotated class should be included in when
+ Hilt generates the components.</div>
 </dd>
 <dt><a href="dagger/multibindings/IntKey.html" title="annotation in dagger.multibindings"><span class="typeNameLink">IntKey</span></a> - Annotation Type in <a href="dagger/multibindings/package-summary.html">dagger.multibindings</a></dt>
 <dd>
@@ -617,6 +784,8 @@
 <div class="block">The method's return type forms the generic type argument of a <code>Set&lt;T&gt;</code>, and the returned
  value is contributed to the set.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/testing/OnComponentReadyRunner.html#isEmpty--">isEmpty()</a></span> - Method in class dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/OnComponentReadyRunner.html" title="class in dagger.hilt.android.testing">OnComponentReadyRunner</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a name="I:L">
 <!--   -->
@@ -649,6 +818,11 @@
 <dt><a href="dagger/MembersInjector.html" title="interface in dagger"><span class="typeNameLink">MembersInjector</span></a>&lt;<a href="dagger/MembersInjector.html" title="type parameter in MembersInjector">T</a>&gt; - Interface in <a href="dagger/package-summary.html">dagger</a></dt>
 <dd>
 <div class="block">Injects dependencies into the fields and methods on instances of type <code>T</code>.</div>
+</dd>
+<dt><a href="dagger/hilt/android/testing/MergedTestApplication.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">MergedTestApplication</span></a> - Annotation Type in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
+<dd>
+<div class="block">An annotation that creates an application with the given base type that can be used for any
+ test in the given build.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dagger/producers/monitoring/ProducerMonitor.html#methodFinished--">methodFinished()</a></span> - Method in class dagger.producers.monitoring.<a href="dagger/producers/monitoring/ProducerMonitor.html" title="class in dagger.producers.monitoring">ProducerMonitor</a></dt>
 <dd>
@@ -725,6 +899,23 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="dagger/android/support/DaggerFragment.html#onAttach-android.content.Context-">onAttach(Context)</a></span> - Method in class dagger.android.support.<a href="dagger/android/support/DaggerFragment.html" title="class in dagger.android.support">DaggerFragment</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/testing/OnComponentReadyRunner.OnComponentReadyListener.html#onComponentReady-T-">onComponentReady(T)</a></span> - Method in interface dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/OnComponentReadyRunner.OnComponentReadyListener.html" title="interface in dagger.hilt.android.testing">OnComponentReadyRunner.OnComponentReadyListener</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/android/testing/OnComponentReadyRunner.html" title="class in dagger.hilt.android.testing"><span class="typeNameLink">OnComponentReadyRunner</span></a> - Class in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
+<dd>
+<div class="block">Provides access to the Singleton component in tests, so that Rules can access it after custom
+ test modules have been added.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/testing/OnComponentReadyRunner.html#OnComponentReadyRunner--">OnComponentReadyRunner()</a></span> - Constructor for class dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/OnComponentReadyRunner.html" title="class in dagger.hilt.android.testing">OnComponentReadyRunner</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/android/testing/OnComponentReadyRunner.OnComponentReadyListener.html" title="interface in dagger.hilt.android.testing"><span class="typeNameLink">OnComponentReadyRunner.OnComponentReadyListener</span></a>&lt;<a href="dagger/hilt/android/testing/OnComponentReadyRunner.OnComponentReadyListener.html" title="type parameter in OnComponentReadyRunner.OnComponentReadyListener">T</a>&gt; - Interface in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
+<dd>
+<div class="block">Rules should register an implementation of this to get access to the singleton component</div>
+</dd>
+<dt><a href="dagger/hilt/android/testing/OnComponentReadyRunner.OnComponentReadyRunnerHolder.html" title="interface in dagger.hilt.android.testing"><span class="typeNameLink">OnComponentReadyRunner.OnComponentReadyRunnerHolder</span></a> - Interface in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
+<dd>
+<div class="block">Public for use by generated code and <code>TestApplicationComponentManager</code></div>
+</dd>
 <dt><span class="memberNameLink"><a href="dagger/android/DaggerActivity.html#onCreate-android.os.Bundle-">onCreate(Bundle)</a></span> - Method in class dagger.android.<a href="dagger/android/DaggerActivity.html" title="class in dagger.android">DaggerActivity</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="dagger/android/DaggerApplication.html#onCreate--">onCreate()</a></span> - Method in class dagger.android.<a href="dagger/android/DaggerApplication.html" title="class in dagger.android">DaggerApplication</a></dt>
@@ -739,6 +930,17 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="dagger/android/DaggerBroadcastReceiver.html#onReceive-android.content.Context-android.content.Intent-">onReceive(Context, Intent)</a></span> - Method in class dagger.android.<a href="dagger/android/DaggerBroadcastReceiver.html" title="class in dagger.android">DaggerBroadcastReceiver</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="dagger/hilt/android/migration/OptionalInject.html" title="annotation in dagger.hilt.android.migration"><span class="typeNameLink">OptionalInject</span></a> - Annotation Type in <a href="dagger/hilt/android/migration/package-summary.html">dagger.hilt.android.migration</a></dt>
+<dd>
+<div class="block">When placed on an @<a href="dagger/hilt/android/AndroidEntryPoint.html" title="annotation in dagger.hilt.android"><code>AndroidEntryPoint</code></a>
+ activity/fragment/view/etc, allows injection to occur optionally based on whether or not the
+ application is using Hilt.</div>
+</dd>
+<dt><a href="dagger/hilt/codegen/OriginatingElement.html" title="annotation in dagger.hilt.codegen"><span class="typeNameLink">OriginatingElement</span></a> - Annotation Type in <a href="dagger/hilt/codegen/package-summary.html">dagger.hilt.codegen</a></dt>
+<dd>
+<div class="block">An annotation used to specify the originating element that triggered the code generation of a
+ type.</div>
+</dd>
 </dl>
 <a name="I:P">
 <!--   -->
@@ -955,6 +1157,18 @@
 <dd>
 <div class="block">Creates a module that provides a server that binds to a given name</div>
 </dd>
+<dt><a href="dagger/hilt/android/components/ServiceComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ServiceComponent</span></a> - Interface in <a href="dagger/hilt/android/components/package-summary.html">dagger.hilt.android.components</a></dt>
+<dd>
+<div class="block">A Hilt component that has the lifetime of the service.</div>
+</dd>
+<dt><a href="dagger/hilt/android/scopes/ServiceScoped.html" title="annotation in dagger.hilt.android.scopes"><span class="typeNameLink">ServiceScoped</span></a> - Annotation Type in <a href="dagger/hilt/android/scopes/package-summary.html">dagger.hilt.android.scopes</a></dt>
+<dd>
+<div class="block">Scope annotation for bindings that should exist for the life of a service.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/testing/OnComponentReadyRunner.html#setComponentManager-dagger.hilt.internal.GeneratedComponentManager-">setComponentManager(GeneratedComponentManager&lt;?&gt;)</a></span> - Method in class dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/OnComponentReadyRunner.html" title="class in dagger.hilt.android.testing">OnComponentReadyRunner</a></dt>
+<dd>
+<div class="block">Used by generated code, to notify listeners that the component has been created.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="dagger/grpc/server/ProxyServerCallHandler.html#startCall-io.grpc.ServerCall-io.grpc.Metadata-">startCall(ServerCall&lt;InputStream, InputStream&gt;, Metadata)</a></span> - Method in class dagger.grpc.server.<a href="dagger/grpc/server/ProxyServerCallHandler.html" title="class in dagger.grpc.server">ProxyServerCallHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="dagger/multibindings/StringKey.html" title="annotation in dagger.multibindings"><span class="typeNameLink">StringKey</span></a> - Annotation Type in <a href="dagger/multibindings/package-summary.html">dagger.multibindings</a></dt>
@@ -1008,6 +1222,16 @@
 <div class="block">Returns a representation of the method.</div>
 </dd>
 </dl>
+<a name="I:U">
+<!--   -->
+</a>
+<h2 class="title">U</h2>
+<dl>
+<dt><a href="dagger/hilt/android/testing/UninstallModules.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">UninstallModules</span></a> - Annotation Type in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
+<dd>
+<div class="block">An annotation used to uninstall modules that have previously been installed with <a href="dagger/hilt/InstallIn.html" title="annotation in dagger.hilt"><code>InstallIn</code></a>.</div>
+</dd>
+</dl>
 <a name="I:V">
 <!--   -->
 </a>
@@ -1022,12 +1246,35 @@
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
 </dd>
+<dt><a href="dagger/hilt/android/components/ViewComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ViewComponent</span></a> - Interface in <a href="dagger/hilt/android/components/package-summary.html">dagger.hilt.android.components</a></dt>
+<dd>
+<div class="block">A Hilt component that has the lifetime of the view.</div>
+</dd>
+<dt><a href="dagger/hilt/android/scopes/ViewScoped.html" title="annotation in dagger.hilt.android.scopes"><span class="typeNameLink">ViewScoped</span></a> - Annotation Type in <a href="dagger/hilt/android/scopes/package-summary.html">dagger.hilt.android.scopes</a></dt>
+<dd>
+<div class="block">Scope annotation for bindings that should exist for the life of a View.</div>
+</dd>
+<dt><a href="dagger/hilt/android/components/ViewWithFragmentComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ViewWithFragmentComponent</span></a> - Interface in <a href="dagger/hilt/android/components/package-summary.html">dagger.hilt.android.components</a></dt>
+<dd>
+<div class="block">A Hilt component that has the lifetime of the view.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="dagger/spi/BindingGraphPlugin.html#visitGraph-dagger.model.BindingGraph-dagger.spi.DiagnosticReporter-">visitGraph(BindingGraph, DiagnosticReporter)</a></span> - Method in interface dagger.spi.<a href="dagger/spi/BindingGraphPlugin.html" title="interface in dagger.spi">BindingGraphPlugin</a></dt>
 <dd>
 <div class="block">Called once for each valid root binding graph encountered by the Dagger processor.</div>
 </dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;</div>
+<a name="I:W">
+<!--   -->
+</a>
+<h2 class="title">W</h2>
+<dl>
+<dt><a href="dagger/hilt/android/WithFragmentBindings.html" title="annotation in dagger.hilt.android"><span class="typeNameLink">WithFragmentBindings</span></a> - Annotation Type in <a href="dagger/hilt/android/package-summary.html">dagger.hilt.android</a></dt>
+<dd>
+<div class="block">Makes a View annotated with <a href="dagger/hilt/android/AndroidEntryPoint.html" title="annotation in dagger.hilt.android"><code>AndroidEntryPoint</code></a> have access to
+ fragment bindings.</div>
+</dd>
+</dl>
+<a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;</div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav"><a name="navbar.bottom">
 <!--   -->

@@ -78,6 +78,15 @@
 <li><a href="dagger/android/support/package-tree.html">dagger.android.support</a>, </li>
 <li><a href="dagger/grpc/server/package-tree.html">dagger.grpc.server</a>, </li>
 <li><a href="dagger/grpc/server/processor/package-tree.html">dagger.grpc.server.processor</a>, </li>
+<li><a href="dagger/hilt/package-tree.html">dagger.hilt</a>, </li>
+<li><a href="dagger/hilt/android/package-tree.html">dagger.hilt.android</a>, </li>
+<li><a href="dagger/hilt/android/components/package-tree.html">dagger.hilt.android.components</a>, </li>
+<li><a href="dagger/hilt/android/migration/package-tree.html">dagger.hilt.android.migration</a>, </li>
+<li><a href="dagger/hilt/android/qualifiers/package-tree.html">dagger.hilt.android.qualifiers</a>, </li>
+<li><a href="dagger/hilt/android/scopes/package-tree.html">dagger.hilt.android.scopes</a>, </li>
+<li><a href="dagger/hilt/android/testing/package-tree.html">dagger.hilt.android.testing</a>, </li>
+<li><a href="dagger/hilt/codegen/package-tree.html">dagger.hilt.codegen</a>, </li>
+<li><a href="dagger/hilt/migration/package-tree.html">dagger.hilt.migration</a>, </li>
 <li><a href="dagger/multibindings/package-tree.html">dagger.multibindings</a>, </li>
 <li><a href="dagger/producers/package-tree.html">dagger.producers</a>, </li>
 <li><a href="dagger/producers/monitoring/package-tree.html">dagger.producers.monitoring</a>, </li>
@@ -169,6 +178,8 @@
 </li>
 <li type="circle">dagger.grpc.server.<a href="dagger/grpc/server/CurrentContextModule.html" title="class in dagger.grpc.server"><span class="typeNameLink">CurrentContextModule</span></a></li>
 <li type="circle">dagger.android.<a href="dagger/android/DispatchingAndroidInjector.html" title="class in dagger.android"><span class="typeNameLink">DispatchingAndroidInjector</span></a>&lt;T&gt; (implements dagger.android.<a href="dagger/android/AndroidInjector.html" title="interface in dagger.android">AndroidInjector</a>&lt;T&gt;)</li>
+<li type="circle">dagger.hilt.android.<a href="dagger/hilt/android/EntryPointAccessors.html" title="class in dagger.hilt.android"><span class="typeNameLink">EntryPointAccessors</span></a></li>
+<li type="circle">dagger.hilt.<a href="dagger/hilt/EntryPoints.html" title="class in dagger.hilt"><span class="typeNameLink">EntryPoints</span></a></li>
 <li type="circle">androidx.fragment.app.Fragment (implements android.content.ComponentCallbacks, androidx.lifecycle.HasDefaultViewModelProviderFactory, androidx.lifecycle.LifecycleOwner, androidx.savedstate.SavedStateRegistryOwner, android.view.View.OnCreateContextMenuListener, androidx.lifecycle.ViewModelStoreOwner)
 <ul>
 <li type="circle">dagger.android.support.<a href="dagger/android/support/DaggerFragment.html" title="class in dagger.android.support"><span class="typeNameLink">DaggerFragment</span></a> (implements dagger.android.<a href="dagger/android/HasAndroidInjector.html" title="interface in dagger.android">HasAndroidInjector</a>)</li>
@@ -195,8 +206,10 @@
 </ul>
 </li>
 <li type="circle">dagger.grpc.server.<a href="dagger/grpc/server/GrpcCallMetadataModule.html" title="class in dagger.grpc.server"><span class="typeNameLink">GrpcCallMetadataModule</span></a></li>
+<li type="circle">dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/HiltAndroidRule.html" title="class in dagger.hilt.android.testing"><span class="typeNameLink">HiltAndroidRule</span></a> (implements org.junit.rules.TestRule)</li>
 <li type="circle">dagger.grpc.server.<a href="dagger/grpc/server/InProcessServerModule.html" title="class in dagger.grpc.server"><span class="typeNameLink">InProcessServerModule</span></a></li>
 <li type="circle">dagger.grpc.server.<a href="dagger/grpc/server/NettyServerModule.html" title="class in dagger.grpc.server"><span class="typeNameLink">NettyServerModule</span></a></li>
+<li type="circle">dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/OnComponentReadyRunner.html" title="class in dagger.hilt.android.testing"><span class="typeNameLink">OnComponentReadyRunner</span></a></li>
 <li type="circle">dagger.producers.<a href="dagger/producers/Produced.html" title="class in dagger.producers"><span class="typeNameLink">Produced</span></a>&lt;T&gt;</li>
 <li type="circle">dagger.producers.monitoring.<a href="dagger/producers/monitoring/ProducerMonitor.html" title="class in dagger.producers.monitoring"><span class="typeNameLink">ProducerMonitor</span></a></li>
 <li type="circle">dagger.producers.<a href="dagger/producers/Producers.html" title="class in dagger.producers"><span class="typeNameLink">Producers</span></a></li>
@@ -233,17 +246,26 @@
 </ul>
 <h2 title="Interface Hierarchy">Interface Hierarchy</h2>
 <ul>
+<li type="circle">dagger.hilt.android.components.<a href="dagger/hilt/android/components/ActivityComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ActivityComponent</span></a></li>
+<li type="circle">dagger.hilt.android.components.<a href="dagger/hilt/android/components/ActivityRetainedComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ActivityRetainedComponent</span></a></li>
 <li type="circle">dagger.android.<a href="dagger/android/AndroidInjector.html" title="interface in dagger.android"><span class="typeNameLink">AndroidInjector</span></a>&lt;T&gt;</li>
 <li type="circle">dagger.android.<a href="dagger/android/AndroidInjector.Factory.html" title="interface in dagger.android"><span class="typeNameLink">AndroidInjector.Factory</span></a>&lt;T&gt;</li>
+<li type="circle">dagger.hilt.android.components.<a href="dagger/hilt/android/components/ApplicationComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ApplicationComponent</span></a></li>
 <li type="circle">dagger.spi.<a href="dagger/spi/BindingGraphPlugin.html" title="interface in dagger.spi"><span class="typeNameLink">BindingGraphPlugin</span></a></li>
 <li type="circle">dagger.spi.<a href="dagger/spi/DiagnosticReporter.html" title="interface in dagger.spi"><span class="typeNameLink">DiagnosticReporter</span></a></li>
+<li type="circle">dagger.hilt.android.components.<a href="dagger/hilt/android/components/FragmentComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">FragmentComponent</span></a></li>
 <li type="circle">dagger.android.<a href="dagger/android/HasAndroidInjector.html" title="interface in dagger.android"><span class="typeNameLink">HasAndroidInjector</span></a></li>
 <li type="circle">dagger.<a href="dagger/Lazy.html" title="interface in dagger"><span class="typeNameLink">Lazy</span></a>&lt;T&gt;</li>
 <li type="circle">dagger.<a href="dagger/MembersInjector.html" title="interface in dagger"><span class="typeNameLink">MembersInjector</span></a>&lt;T&gt;</li>
+<li type="circle">dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/OnComponentReadyRunner.OnComponentReadyListener.html" title="interface in dagger.hilt.android.testing"><span class="typeNameLink">OnComponentReadyRunner.OnComponentReadyListener</span></a>&lt;T&gt;</li>
+<li type="circle">dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/OnComponentReadyRunner.OnComponentReadyRunnerHolder.html" title="interface in dagger.hilt.android.testing"><span class="typeNameLink">OnComponentReadyRunner.OnComponentReadyRunnerHolder</span></a></li>
 <li type="circle">dagger.producers.<a href="dagger/producers/Producer.html" title="interface in dagger.producers"><span class="typeNameLink">Producer</span></a>&lt;T&gt;</li>
 <li type="circle">dagger.producers.monitoring.<a href="dagger/producers/monitoring/ProductionComponentTimingRecorder.html" title="interface in dagger.producers.monitoring"><span class="typeNameLink">ProductionComponentTimingRecorder</span></a></li>
 <li type="circle">dagger.producers.monitoring.<a href="dagger/producers/monitoring/ProductionComponentTimingRecorder.Factory.html" title="interface in dagger.producers.monitoring"><span class="typeNameLink">ProductionComponentTimingRecorder.Factory</span></a></li>
 <li type="circle">dagger.grpc.server.<a href="dagger/grpc/server/ProxyServerCallHandler.ServiceDefinitionFactory.html" title="interface in dagger.grpc.server"><span class="typeNameLink">ProxyServerCallHandler.ServiceDefinitionFactory</span></a></li>
+<li type="circle">dagger.hilt.android.components.<a href="dagger/hilt/android/components/ServiceComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ServiceComponent</span></a></li>
+<li type="circle">dagger.hilt.android.components.<a href="dagger/hilt/android/components/ViewComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ViewComponent</span></a></li>
+<li type="circle">dagger.hilt.android.components.<a href="dagger/hilt/android/components/ViewWithFragmentComponent.html" title="interface in dagger.hilt.android.components"><span class="typeNameLink">ViewWithFragmentComponent</span></a></li>
 </ul>
 <h2 title="Annotation Type Hierarchy">Annotation Type Hierarchy</h2>
 <ul>
@@ -282,6 +304,33 @@
 <li type="circle">dagger.grpc.server.<a href="dagger/grpc/server/GrpcService.html" title="annotation in dagger.grpc.server"><span class="typeNameLink">GrpcService</span></a> (implements java.lang.annotation.Annotation)</li>
 <li type="circle">dagger.grpc.server.<a href="dagger/grpc/server/ForGrpcService.html" title="annotation in dagger.grpc.server"><span class="typeNameLink">ForGrpcService</span></a> (implements java.lang.annotation.Annotation)</li>
 <li type="circle">dagger.grpc.server.<a href="dagger/grpc/server/CallScoped.html" title="annotation in dagger.grpc.server"><span class="typeNameLink">CallScoped</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.<a href="dagger/hilt/GenerateComponents.html" title="annotation in dagger.hilt"><span class="typeNameLink">GenerateComponents</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.<a href="dagger/hilt/DefineComponent.html" title="annotation in dagger.hilt"><span class="typeNameLink">DefineComponent</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.<a href="dagger/hilt/DefineComponent.Builder.html" title="annotation in dagger.hilt"><span class="typeNameLink">DefineComponent.Builder</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.<a href="dagger/hilt/InstallIn.html" title="annotation in dagger.hilt"><span class="typeNameLink">InstallIn</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.<a href="dagger/hilt/GeneratesRootInput.html" title="annotation in dagger.hilt"><span class="typeNameLink">GeneratesRootInput</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.<a href="dagger/hilt/EntryPoint.html" title="annotation in dagger.hilt"><span class="typeNameLink">EntryPoint</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.codegen.<a href="dagger/hilt/codegen/OriginatingElement.html" title="annotation in dagger.hilt.codegen"><span class="typeNameLink">OriginatingElement</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.scopes.<a href="dagger/hilt/android/scopes/ActivityRetainedScoped.html" title="annotation in dagger.hilt.android.scopes"><span class="typeNameLink">ActivityRetainedScoped</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.scopes.<a href="dagger/hilt/android/scopes/ViewScoped.html" title="annotation in dagger.hilt.android.scopes"><span class="typeNameLink">ViewScoped</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.scopes.<a href="dagger/hilt/android/scopes/ServiceScoped.html" title="annotation in dagger.hilt.android.scopes"><span class="typeNameLink">ServiceScoped</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.scopes.<a href="dagger/hilt/android/scopes/FragmentScoped.html" title="annotation in dagger.hilt.android.scopes"><span class="typeNameLink">FragmentScoped</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.scopes.<a href="dagger/hilt/android/scopes/ActivityScoped.html" title="annotation in dagger.hilt.android.scopes"><span class="typeNameLink">ActivityScoped</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.<a href="dagger/hilt/android/HiltAndroidApp.html" title="annotation in dagger.hilt.android"><span class="typeNameLink">HiltAndroidApp</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.<a href="dagger/hilt/android/WithFragmentBindings.html" title="annotation in dagger.hilt.android"><span class="typeNameLink">WithFragmentBindings</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.<a href="dagger/hilt/android/AndroidEntryPoint.html" title="annotation in dagger.hilt.android"><span class="typeNameLink">AndroidEntryPoint</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/UninstallModules.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">UninstallModules</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/MergedTestApplication.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">MergedTestApplication</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/HiltAndroidTest.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">HiltAndroidTest</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/BindValueIntoSet.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">BindValueIntoSet</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/BindValueIntoMap.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">BindValueIntoMap</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/BindValue.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">BindValue</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/BindElementsIntoSet.html" title="annotation in dagger.hilt.android.testing"><span class="typeNameLink">BindElementsIntoSet</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.qualifiers.<a href="dagger/hilt/android/qualifiers/ApplicationContext.html" title="annotation in dagger.hilt.android.qualifiers"><span class="typeNameLink">ApplicationContext</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.qualifiers.<a href="dagger/hilt/android/qualifiers/ActivityContext.html" title="annotation in dagger.hilt.android.qualifiers"><span class="typeNameLink">ActivityContext</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.android.migration.<a href="dagger/hilt/android/migration/OptionalInject.html" title="annotation in dagger.hilt.android.migration"><span class="typeNameLink">OptionalInject</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.migration.<a href="dagger/hilt/migration/AliasOf.html" title="annotation in dagger.hilt.migration"><span class="typeNameLink">AliasOf</span></a> (implements java.lang.annotation.Annotation)</li>
+<li type="circle">dagger.hilt.migration.<a href="dagger/hilt/migration/DisableInstallInCheck.html" title="annotation in dagger.hilt.migration"><span class="typeNameLink">DisableInstallInCheck</span></a> (implements java.lang.annotation.Annotation)</li>
 <li type="circle">dagger.android.<a href="dagger/android/ContributesAndroidInjector.html" title="annotation in dagger.android"><span class="typeNameLink">ContributesAndroidInjector</span></a> (implements java.lang.annotation.Annotation)</li>
 <li type="circle">dagger.android.<a href="dagger/android/AndroidInjectionKey.html" title="annotation in dagger.android"><span class="typeNameLink">AndroidInjectionKey</span></a> (implements java.lang.annotation.Annotation)</li>
 </ul>
