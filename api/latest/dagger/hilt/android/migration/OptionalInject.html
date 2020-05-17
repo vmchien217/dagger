@@ -43,7 +43,7 @@
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../dagger/hilt/android/migration/OptionalInjectCheck.html" title="class in dagger.hilt.android.migration"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?dagger/hilt/android/migration/OptionalInject.html" target="_top">Frames</a></li>
@@ -94,16 +94,45 @@
 <br>
 <pre>@Target(value=TYPE)
 public @interface <span class="memberNameLabel">OptionalInject</span></pre>
-<div class="block">When placed on an @<a href="../../../../dagger/hilt/android/AndroidEntryPoint.html" title="annotation in dagger.hilt.android"><code>AndroidEntryPoint</code></a>
- activity/fragment/view/etc, allows injection to occur optionally based on whether or not the
- application is using Hilt. This may be useful for libraries that have to support Hilt users as
- well as non-Hilt users.
+<div class="block">When placed on an <a href="../../../../dagger/hilt/android/AndroidEntryPoint.html" title="annotation in dagger.hilt.android"><code>AndroidEntryPoint</code></a>-annotated activity / fragment /
+ view / etc, allows injection to occur optionally based on whether or not the application is using
+ Hilt.
 
- <p>Usage of this annotation will also cause a method <code>wasInjectedByHilt</code> to be generated
- in the Hilt base class as well, that returns a boolean for whether or not injection actually
- happened. Injection will happen if the parent type (e.g. the activity to a fragment) is an
- <a href="../../../../dagger/hilt/android/AndroidEntryPoint.html" title="annotation in dagger.hilt.android"><code>AndroidEntryPoint</code></a> annotated class and if that parent was also
- injected via Hilt.</div>
+ <p>When using this annotation, you can use <a href="../../../../dagger/hilt/android/migration/OptionalInjectCheck.html#wasInjectedByHilt-androidx.activity.ComponentActivity-"><code>OptionalInjectCheck.wasInjectedByHilt(androidx.activity.ComponentActivity)</code></a> to check
+ at runtime if the annotated class was injected by Hilt. Additionally, this annotation will also
+ cause a method, <code>wasInjectedByHilt</code> to be generated in the Hilt base class as well, that
+ behaves the same as <a href="../../../../dagger/hilt/android/migration/OptionalInjectCheck.html#wasInjectedByHilt-androidx.activity.ComponentActivity-"><code>OptionalInjectCheck.wasInjectedByHilt(androidx.activity.ComponentActivity)</code></a>. The method is available to
+ users that extend the Hilt base class directly and don't use the Gradle plugin.
+
+ <p>Example usage:
+
+ <pre><code>
+  @OptionalInject
+  @AndroidEntryPoint
+ public final class MyFragment extends Fragment {
+
+    @Inject Foo foo;
+
+    @Override
+   public void onAttach(Activity activity) {
+     // Injection will happen here, but only if the Activity and the Application are also
+     // AndroidEntryPoints and were injected by Hilt.
+     super.onAttach(activity);
+     if (!OptionalInjectCheck.wasInjectedByHilt(this)) {
+       // Get Dagger components the previous way and inject.
+     }
+   }
+ }
+ </code></pre>
+
+ <p>This is useful for libraries that have to support Hilt users as well as non-Hilt users.
+ Injection will happen if the parent type (e.g. the activity of a fragment) is an <a href="../../../../dagger/hilt/android/AndroidEntryPoint.html" title="annotation in dagger.hilt.android"><code>AndroidEntryPoint</code></a> annotated class and if that parent was also injected via
+ Hilt.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../dagger/hilt/android/migration/OptionalInjectCheck.html" title="class in dagger.hilt.android.migration"><code>OptionalInjectCheck</code></a>, 
+<a href="https://dagger.dev/hilt/optional-inject">Optional injection</a></dd>
+</dl>
 </li>
 </ul>
 </div>
@@ -131,7 +160,7 @@ public @interface <span class="memberNameLabel">OptionalInject</span></pre>
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../dagger/hilt/android/migration/OptionalInjectCheck.html" title="class in dagger.hilt.android.migration"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?dagger/hilt/android/migration/OptionalInject.html" target="_top">Frames</a></li>

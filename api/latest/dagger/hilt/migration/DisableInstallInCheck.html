@@ -93,10 +93,11 @@
 <hr>
 <br>
 <pre>public @interface <span class="memberNameLabel">DisableInstallInCheck</span></pre>
-<div class="block">Use this annotation on modules to suppress the error of a missing <a href="../../../dagger/hilt/InstallIn.html" title="annotation in dagger.hilt"><code>InstallIn</code></a>
- annotation. This is useful in cases where non-Hilt Dagger code must be used long-term. If the
- issue is widespread, consider changing the error behavior with the flag the
- dagger.hilt.disableModulesHaveInstallInCheck instead.</div>
+<div class="block">Marks a <a href="../../../dagger/Module.html" title="annotation in dagger"><code>Module</code></a>-annotated class to allow it to have no <a href="../../../dagger/hilt/InstallIn.html" title="annotation in dagger.hilt"><code>InstallIn</code></a> annotation.
+
+ <p>Use this annotation on modules to suppress the error of a missing <a href="../../../dagger/hilt/InstallIn.html" title="annotation in dagger.hilt"><code>InstallIn</code></a> annotation. This is useful in cases where non-Hilt Dagger code must be
+ used long-term. If the issue is widespread, consider changing the error behavior with the
+ compiler flag <code>dagger.hilt.disableModulesHaveInstallInCheck</code> instead.</div>
 </li>
 </ul>
 </div>

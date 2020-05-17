@@ -103,11 +103,10 @@ public @interface <span class="memberNameLabel">UninstallModules</span></pre>
  <p>Example:
 
  <pre><code>
+    @HiltAndroidTest
     @UninstallModules({
        ProdFooModule.class,
    })
-    @GenerateComponents
-    @HiltAndroidTest
    public class MyTest {
       @Module
       @InstallIn(ApplicationComponent.class)

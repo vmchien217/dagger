@@ -96,19 +96,20 @@
  @Target(value=TYPE)
 public @interface <span class="memberNameLabel">HiltAndroidApp</span></pre>
 <div class="block">Annotation for marking the <code>Application</code> class where the Dagger components
- should be generated. Since all components will be built in the same compilation as the
- annotated application, all modules and entry points that should be installed in the component
- need to be transitive compilation dependencies of the annotated application.
+ should be generated. Since all components will be built in the same compilation as the annotated
+ application, all modules and entry points that should be installed in the component need to be
+ transitive compilation dependencies of the annotated application.
 
- <p>Usage of this annotation is similar to <a href="../../../dagger/hilt/android/AndroidEntryPoint.html" title="annotation in dagger.hilt.android"><code>AndroidEntryPoint</code></a> with
- the only difference being that it only works on application classes and additionally triggers
- Dagger component generation.
+ <p>Usage of this annotation is similar to <a href="../../../dagger/hilt/android/AndroidEntryPoint.html" title="annotation in dagger.hilt.android"><code>AndroidEntryPoint</code></a> with the
+ only difference being that it only works on application classes and additionally triggers Dagger
+ component generation.
+
  <p>This annotation will generate a base class that the annotated class should extend, either
- directly or via the Hilt Gradle Plugin. This base class will take care of injecting members
- into the Android class as well as handling instantiating the proper Hilt components at the
- right point in the lifecycle. The name of the base class will be "Hilt_<annotated class name>".
+ directly or via the Hilt Gradle Plugin. This base class will take care of injecting members into
+ the Android class as well as handling instantiating the proper Hilt components at the right point
+ in the lifecycle. The name of the base class will be "Hilt_<annotated class name>".
 
- <p>Exampe usage (with the Hilt Gradle Plugin):
+ <p>Example usage (with the Hilt Gradle Plugin):
 
  <pre><code>
     @HiltAndroidApp
@@ -122,7 +123,7 @@ public @interface <span class="memberNameLabel">HiltAndroidApp</span></pre>
    }
  </code></pre>
 
- <p>Exampe usage (without the Hilt Gradle Plugin):
+ <p>Example usage (without the Hilt Gradle Plugin):
 
  <pre><code>
     @HiltAndroidApp(Application.class)
@@ -135,6 +136,10 @@ public @interface <span class="memberNameLabel">HiltAndroidApp</span></pre>
      }
    }
  </code></pre></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../dagger/hilt/android/AndroidEntryPoint.html" title="annotation in dagger.hilt.android"><code>AndroidEntryPoint</code></a></dd>
+</dl>
 </li>
 </ul>
 </div>
