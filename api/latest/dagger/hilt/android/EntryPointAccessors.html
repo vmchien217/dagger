@@ -185,8 +185,9 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>fromApplication</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;fromApplication(android.content.Context&nbsp;context,
-                                    java.lang.Class&lt;T&gt;&nbsp;entryPoint)</pre>
+<pre>@Nonnull
+public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;fromApplication(android.content.Context&nbsp;context,
+                                             java.lang.Class&lt;T&gt;&nbsp;entryPoint)</pre>
 <div class="block">Returns the entry point interface from an application. The context can be any context derived
  from the application context. May only be used with entry point interfaces installed in the
  ApplicationComponent.</div>
@@ -198,8 +199,9 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>fromActivity</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;fromActivity(android.app.Activity&nbsp;activity,
-                                 java.lang.Class&lt;T&gt;&nbsp;entryPoint)</pre>
+<pre>@Nonnull
+public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;fromActivity(android.app.Activity&nbsp;activity,
+                                          java.lang.Class&lt;T&gt;&nbsp;entryPoint)</pre>
 <div class="block">Returns the entry point interface from an activity. May only be used with entry point
  interfaces installed in the ActivityComponent.</div>
 </li>
@@ -210,10 +212,11 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>fromFragment</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;fromFragment(androidx.fragment.app.Fragment&nbsp;fragment,
-                                 java.lang.Class&lt;T&gt;&nbsp;entryPoint)</pre>
-<div class="block">Returns the entry point interface from a fragment. May only be used with entry point
- interfaces installed in the FragmentComponent.</div>
+<pre>@Nonnull
+public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;fromFragment(androidx.fragment.app.Fragment&nbsp;fragment,
+                                          java.lang.Class&lt;T&gt;&nbsp;entryPoint)</pre>
+<div class="block">Returns the entry point interface from a fragment. May only be used with entry point interfaces
+ installed in the FragmentComponent.</div>
 </li>
 </ul>
 <a name="fromView-android.view.View-java.lang.Class-">
@@ -222,10 +225,11 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>fromView</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;fromView(android.view.View&nbsp;view,
-                             java.lang.Class&lt;T&gt;&nbsp;entryPoint)</pre>
-<div class="block">Returns the entry point interface from a view. May only be used with entry point
- interfaces installed in the ViewComponent or ViewNoFragmentComponent.</div>
+<pre>@Nonnull
+public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;fromView(android.view.View&nbsp;view,
+                                      java.lang.Class&lt;T&gt;&nbsp;entryPoint)</pre>
+<div class="block">Returns the entry point interface from a view. May only be used with entry point interfaces
+ installed in the ViewComponent or ViewNoFragmentComponent.</div>
 </li>
 </ul>
 </li>

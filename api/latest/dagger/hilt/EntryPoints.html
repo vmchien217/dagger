@@ -164,18 +164,18 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>get</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;get(java.lang.Object&nbsp;component,
-                        java.lang.Class&lt;T&gt;&nbsp;entryPoint)</pre>
+<pre>@Nonnull
+public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;get(java.lang.Object&nbsp;component,
+                                 java.lang.Class&lt;T&gt;&nbsp;entryPoint)</pre>
 <div class="block">Returns the entry point interface given a component or component manager. Note that this
- performs an unsafe cast and so callers should be sure that the given
- component/component manager matches the entry point interface that is given.</div>
+ performs an unsafe cast and so callers should be sure that the given component/component
+ manager matches the entry point interface that is given.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>component</code> - The Hilt-generated component instance. For convenience, also takes component
      manager instances as well.</dd>
-<dd><code>entryPoint</code> - The interface marked with <a href="../../dagger/hilt/EntryPoint.html" title="annotation in dagger.hilt"><code>EntryPoint</code></a>. The
-     <a href="../../dagger/hilt/InstallIn.html" title="annotation in dagger.hilt"><code>InstallIn</code></a> annotation on this entry point should match the component
-     argument above.</dd>
+<dd><code>entryPoint</code> - The interface marked with <a href="../../dagger/hilt/EntryPoint.html" title="annotation in dagger.hilt"><code>EntryPoint</code></a>. The <a href="../../dagger/hilt/InstallIn.html" title="annotation in dagger.hilt"><code>InstallIn</code></a> annotation on this entry point should match the component argument
+     above.</dd>
 </dl>
 </li>
 </ul>
