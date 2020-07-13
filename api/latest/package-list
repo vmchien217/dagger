@@ -12,6 +12,7 @@ dagger.hilt.android.qualifiers
 dagger.hilt.android.scopes
 dagger.hilt.android.testing
 dagger.hilt.codegen
+dagger.hilt.components
 dagger.hilt.migration
 dagger.multibindings
 dagger.producers
