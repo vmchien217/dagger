@@ -85,6 +85,14 @@
 <dd>
 <div class="block">A Hilt component that has the lifetime of a configuration surviving activity.</div>
 </dd>
+<dt><a href="dagger/hilt/android/ActivityRetainedLifecycle.html" title="interface in dagger.hilt.android"><span class="typeNameLink">ActivityRetainedLifecycle</span></a> - Interface in <a href="dagger/hilt/android/package-summary.html">dagger.hilt.android</a></dt>
+<dd>
+<div class="block">A <code>ActivityRetainedLifecycle</code> class is associated with the lifecycle of the <a href="dagger/hilt/android/components/ActivityRetainedComponent.html" title="interface in dagger.hilt.android.components"><code>ActivityRetainedComponent</code></a>.</div>
+</dd>
+<dt><a href="dagger/hilt/android/ActivityRetainedLifecycle.OnClearedListener.html" title="interface in dagger.hilt.android"><span class="typeNameLink">ActivityRetainedLifecycle.OnClearedListener</span></a> - Interface in <a href="dagger/hilt/android/package-summary.html">dagger.hilt.android</a></dt>
+<dd>
+<div class="block">Listener for receiving a callback for when the <a href="dagger/hilt/android/components/ActivityRetainedComponent.html" title="interface in dagger.hilt.android.components"><code>ActivityRetainedComponent</code></a> will no longer be used and destroyed.</div>
+</dd>
 <dt><a href="dagger/hilt/android/scopes/ActivityRetainedScoped.html" title="annotation in dagger.hilt.android.scopes"><span class="typeNameLink">ActivityRetainedScoped</span></a> - Annotation Type in <a href="dagger/hilt/android/scopes/package-summary.html">dagger.hilt.android.scopes</a></dt>
 <dd>
 <div class="block">Scope annotation for bindings that should exist for the life of an activity, surviving
@@ -101,6 +109,11 @@
 <dt><span class="memberNameLink"><a href="dagger/hilt/android/testing/OnComponentReadyRunner.html#addListener-android.content.Context-java.lang.Class-dagger.hilt.android.testing.OnComponentReadyRunner.OnComponentReadyListener-">addListener(Context, Class&lt;T&gt;, OnComponentReadyRunner.OnComponentReadyListener&lt;T&gt;)</a></span> - Static method in class dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/OnComponentReadyRunner.html" title="class in dagger.hilt.android.testing">OnComponentReadyRunner</a></dt>
 <dd>
 <div class="block">Must be called on the test thread, before the Statement is evaluated.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/ActivityRetainedLifecycle.html#addOnClearedListener-dagger.hilt.android.ActivityRetainedLifecycle.OnClearedListener-">addOnClearedListener(ActivityRetainedLifecycle.OnClearedListener)</a></span> - Method in interface dagger.hilt.android.<a href="dagger/hilt/android/ActivityRetainedLifecycle.html" title="interface in dagger.hilt.android">ActivityRetainedLifecycle</a></dt>
+<dd>
+<div class="block">Adds a new <a href="dagger/hilt/android/ActivityRetainedLifecycle.OnClearedListener.html" title="interface in dagger.hilt.android"><code>ActivityRetainedLifecycle.OnClearedListener</code></a> for receiving a callback when the activity retained
+ instances will no longer be needed and destroyed.</div>
 </dd>
 <dt><a href="dagger/hilt/migration/AliasOf.html" title="annotation in dagger.hilt.migration"><span class="typeNameLink">AliasOf</span></a> - Annotation Type in <a href="dagger/hilt/migration/package-summary.html">dagger.hilt.migration</a></dt>
 <dd>
@@ -928,6 +941,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="dagger/android/support/DaggerFragment.html#onAttach-android.content.Context-">onAttach(Context)</a></span> - Method in class dagger.android.support.<a href="dagger/android/support/DaggerFragment.html" title="class in dagger.android.support">DaggerFragment</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/ActivityRetainedLifecycle.OnClearedListener.html#onCleared--">onCleared()</a></span> - Method in interface dagger.hilt.android.<a href="dagger/hilt/android/ActivityRetainedLifecycle.OnClearedListener.html" title="interface in dagger.hilt.android">ActivityRetainedLifecycle.OnClearedListener</a></dt>
+<dd>
+<div class="block">Called when the activity retained instances will no longer be used and destroyed.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="dagger/hilt/android/testing/OnComponentReadyRunner.OnComponentReadyListener.html#onComponentReady-T-">onComponentReady(T)</a></span> - Method in interface dagger.hilt.android.testing.<a href="dagger/hilt/android/testing/OnComponentReadyRunner.OnComponentReadyListener.html" title="interface in dagger.hilt.android.testing">OnComponentReadyRunner.OnComponentReadyListener</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="dagger/hilt/android/testing/OnComponentReadyRunner.html" title="class in dagger.hilt.android.testing"><span class="typeNameLink">OnComponentReadyRunner</span></a> - Class in <a href="dagger/hilt/android/testing/package-summary.html">dagger.hilt.android.testing</a></dt>
@@ -1128,6 +1145,10 @@
 <dt><span class="memberNameLink"><a href="dagger/producers/monitoring/ProducerTimingRecorder.html#recordSuccess-long-">recordSuccess(long)</a></span> - Method in class dagger.producers.monitoring.<a href="dagger/producers/monitoring/ProducerTimingRecorder.html" title="class in dagger.producers.monitoring">ProducerTimingRecorder</a></dt>
 <dd>
 <div class="block">Reports that the producer's future has succeeded with the given statistics.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="dagger/hilt/android/ActivityRetainedLifecycle.html#removeOnClearedListener-dagger.hilt.android.ActivityRetainedLifecycle.OnClearedListener-">removeOnClearedListener(ActivityRetainedLifecycle.OnClearedListener)</a></span> - Method in interface dagger.hilt.android.<a href="dagger/hilt/android/ActivityRetainedLifecycle.html" title="interface in dagger.hilt.android">ActivityRetainedLifecycle</a></dt>
+<dd>
+<div class="block">Removes a <a href="dagger/hilt/android/ActivityRetainedLifecycle.OnClearedListener.html" title="interface in dagger.hilt.android"><code>ActivityRetainedLifecycle.OnClearedListener</code></a> previously added via <a href="dagger/hilt/android/ActivityRetainedLifecycle.html#addOnClearedListener-dagger.hilt.android.ActivityRetainedLifecycle.OnClearedListener-"><code>ActivityRetainedLifecycle.addOnClearedListener(OnClearedListener)</code></a>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="dagger/spi/DiagnosticReporter.html#reportBinding-javax.tools.Diagnostic.Kind-dagger.model.BindingGraph.MaybeBinding-java.lang.String-">reportBinding(Diagnostic.Kind, BindingGraph.MaybeBinding, String)</a></span> - Method in interface dagger.spi.<a href="dagger/spi/DiagnosticReporter.html" title="interface in dagger.spi">DiagnosticReporter</a></dt>
 <dd>
