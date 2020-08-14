@@ -148,7 +148,7 @@ implements com.google.auto.common.BasicAnnotationProcessor.ProcessingStep</pre>
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from class&nbsp;com.google.auto.common.BasicAnnotationProcessor</h3>
-<code>com.google.auto.common.BasicAnnotationProcessor.ProcessingStep</code></li>
+<code>com.google.auto.common.BasicAnnotationProcessor.ProcessingStep, com.google.auto.common.BasicAnnotationProcessor.Step</code></li>
 </ul>
 </li>
 </ul>
@@ -218,7 +218,7 @@ implements com.google.auto.common.BasicAnnotationProcessor.ProcessingStep</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.google.auto.common.BasicAnnotationProcessor</h3>
-<code>getSupportedAnnotationTypes, init, postProcess, postRound, process</code></li>
+<code>asStep, getSupportedAnnotationTypes, init, postProcess, postRound, process, steps</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.javax.annotation.processing.AbstractProcessor">
@@ -273,7 +273,7 @@ implements com.google.auto.common.BasicAnnotationProcessor.ProcessingStep</pre>
 <h4>initSteps</h4>
 <pre>protected&nbsp;com.google.common.collect.ImmutableList&lt;<a href="../../../../dagger/grpc/server/processor/GrpcServiceProcessor.html" title="class in dagger.grpc.server.processor">GrpcServiceProcessor</a>&gt;&nbsp;initSteps()</pre>
 <dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>initSteps</code>&nbsp;in class&nbsp;<code>com.google.auto.common.BasicAnnotationProcessor</code></dd>
 </dl>
 </li>
