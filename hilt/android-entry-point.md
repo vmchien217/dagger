@@ -8,7 +8,6 @@ using the plugin, please read this [page](gradle-setup.md#hilt-gradle-plugin) fo
 details.
 {: .c-callouts__note }
 
-
 ## Android types
 
 Once you have enabled members injection in your `Application`, you can start
@@ -34,7 +33,6 @@ process is the same for other types.
 [^1]: Unlike the other supported Android classes, `BroadcastReceivers` do not
     have their own Dagger component and are instead simply injected from the
     `SingletonComponent`.
-
 
 To enable members injection in your activity, annotate your class with
 [`@AndroidEntryPoint`](https://dagger.dev/api/latest/dagger/hilt/android/AndroidEntryPoint.html).
@@ -80,7 +78,6 @@ not the (now deprecated)
 [`Fragment`](https://developer.android.com/reference/android/app/Fragment) in
 the Android platform.
 {: .c-callouts__note }
-
 
 ### Retained Fragments {#retained-fragments}
 

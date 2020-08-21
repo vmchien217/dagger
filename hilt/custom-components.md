@@ -50,7 +50,6 @@ custom component is needed:
     isn't really meant to be extensible, it may not be a good match for a Hilt
     custom component.
 
-
 ### Custom component limitations
 
 Custom component definitions currently have some limitations:

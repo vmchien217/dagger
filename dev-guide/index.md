@@ -30,7 +30,6 @@ Dependency injection isn't just for testing. It also makes it easy to create
 `DevLoggingModule` during development and `ProdLoggingModule` in production to
 get the right behavior in each situation.
 
-
 ## Why Dagger 2 is Different
 
 [Dependency injection][DI] frameworks have existed for years with a whole
@@ -588,7 +587,6 @@ order to activate code generation you will need to include
 `dagger-compiler-2.X.jar` in your build at compile time. See
 the [README][installation] for more information.
 
-
 ## License
 
 ```
@@ -639,4 +637,3 @@ limitations under the License.
 [Subcomponent.Builder]: https://dagger.dev/api/latest/dagger/Subcomponent.Builder.html
 [Subcomponent]: https://dagger.dev/api/latest/dagger/Subcomponent.html
 [`WeakReference`]: https://docs.oracle.com/javase/7/docs/api/java/lang/ref/WeakReference.html
-

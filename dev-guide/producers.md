@@ -8,7 +8,6 @@ redirect_from:
 Dagger Producers is an extension to Dagger that implements
 asynchronous dependency injection in Java.
 
-
 ## Overview
 
 This document assumes familiarity with the [Dagger 2 API][Dagger 2] and with

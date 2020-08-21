@@ -10,7 +10,6 @@ replacement for the other.  This guide will highlight both the API and
 conceptual differences between the two versions and provide recommended patterns
 for migrating.
 
-
 ## Injected types
 
 Dagger 2 continues to rely on [JSR 330] for declaring injection sites. All of

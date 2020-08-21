@@ -3,7 +3,6 @@ layout: default
 title: gRPC servers with Dagger
 ---
 
-
 ## gRPC servers without Dagger
 
 To implement a gRPC service, you create a class that extends a base service
@@ -71,7 +70,6 @@ call. To do so, follow these steps:
 
     Make sure the Dagger-gRPC server annotation processor runs over your source
     code.
-
 
     That will generate an interface `HelloServiceDefinition` and a [module]
     `HelloUnscopedGrpcServiceModule`.

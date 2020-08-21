@@ -102,4 +102,3 @@ interface FooTest_FooModule {
 
 [`@GeneratesRootInput`]: https://dagger.dev/api/latest/dagger/hilt/GeneratesRootInput.html
 [`@OriginatingElement`]: https://dagger.dev/api/latest/dagger/hilt/codegen/OriginatingElement.html
-

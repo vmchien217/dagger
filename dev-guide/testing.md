@@ -9,7 +9,6 @@ One of the benefits of using dependency injection frameworks like Dagger is that
 it makes testing your code easier. This document explores some strategies for
 testing applications built with Dagger.
 
-
 ## Replace bindings for functional/integration/end-to-end testing
 
 Functional/integration/end-to-end tests typically use the production
@@ -229,7 +228,6 @@ write a traditional unit test, you can directly call the `@Inject`-annotated
 constructor and methods and set the `@Inject`-annotated fields, if any, passing
 fake or mock dependencies directly, just as you would if they weren’t annotated.
 
-
 ```java
 final class ThingDoer {
   private final ThingGetter getter;
@@ -252,7 +250,6 @@ public class ThingDoerTest {
 }
 ```
 
-
 <!-- References -->
 
 [cohesive]: https://en.wikipedia.org/wiki/Cohesion_(computer_science)
@@ -263,4 +260,3 @@ public class ThingDoerTest {
 
 <!-- TODO(gak): Document the elision of static module instances somewhere externally. -->
 [elide-static-module-instances]: https://github.com/google/dagger/commit/9b81e1091d5e9ddd1e84318fbab863a8c62fb757
-

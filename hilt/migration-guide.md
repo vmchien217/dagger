@@ -23,7 +23,6 @@ unused or no longer existing imports are removed from the file.
 * This is a placeholder list that will be replaced with the table of contents
 {:toc}
 
-
 ## 0. Plan your migration
 
 When migrating to Hilt, you'll want to organize your work into steps. This guide

@@ -7,7 +7,6 @@ title: Hilt Application
 using the plugin, please read this [page](gradle-setup.md#hilt-gradle-plugin) for details.
 {: .c-callouts__note }
 
-
 ## Hilt Application
 
 All apps using Hilt _must_ contain an
@@ -20,7 +19,6 @@ application that uses those generated components. Because the code generation
 needs access to all of your modules, the target that compiles your `Application`
 class also needs to have all of your Dagger modules in its transitive
 dependencies.
-
 
 Just like other Hilt [Android entry points](android-entry-point.md),
 Applications are members injected as well. This means you can use injected
@@ -96,4 +94,3 @@ class MyApplication : MyBaseApplication() {
 }
 ```
 {: .c-codeselector__code .c-codeselector__code_kotlin }
-

@@ -28,7 +28,6 @@ only be scoped with `@ActivityScoped`.
 
 [Dagger docs]:https://dagger.dev/subcomponents#subcomponents-and-scope
 
-
 ![Hilt Component Hierarchy](component-hierarchy.svg)
 
 ## Component members injection
@@ -77,7 +76,6 @@ Component                       | Scope                    | Created at         
 
 [^1]: `ActivityRetainedComponent` lives across configuration changes, so it is
     created at the first onCreate and last onDestroy.
-
 
 #### Scoped vs unscoped bindings
 
@@ -190,7 +188,6 @@ binding should be scoped is to only scope the binding if it's required for the
 correctness of the code. If you think a binding should be scoped for purely
 performance reasons, first verify that the performance is an issue, and if it is
 consider using `@Reusable` instead of a component scope.
-
 
 ## Component default bindings {#component-bindings}
 

@@ -33,7 +33,6 @@ Hilt, but this check may be optionally
 not be part of the component and may result in compilation errors.
 {: .c-callouts__note }
 
-
 Specify which Hilt Component to install the module in by passing in the
 appropriate [Component](components.md) type(s) to the `@InstallIn` annotation.
 For example, to install a module so that anything in the application can use it,
@@ -165,7 +164,6 @@ replace in tests instead of [uninstalling](testing.md#uninstall-modules) them.
 This is because it reduces the build dependencies of your test which can lead to
 overall faster build times.
 
-
 When organizing your BUILD target for a module, you should consider if this
 module should be replaceable in tests or other configurations of your app. If it
 should never be replaced, then feel free to include the module with your other
@@ -175,7 +173,6 @@ If it should be replaceable though, you should create a separate target for your
 module. This target can then be pulled in at the root of your app so that each
 test root (or other configuration root) can decide whether to use your module or
 not.
-
 
 There are two ways to organize your BUILD targets with regards to modules
 depending on the situation:

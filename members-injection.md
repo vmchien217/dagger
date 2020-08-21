@@ -128,4 +128,3 @@ class MyClass {
 > *   **`MembersInjector<T>`** is a type that Dagger can provide automatically.
 >     It has a single method that injects the fields and methods of an object:
 >     `injectMembers(T)`.
-

@@ -19,7 +19,6 @@ subcomponent depend on objects bound in sibling subcomponents.
 In other words, the object graph of a subcomponent's parent component is a
 subgraph of the object graph of the subcomponent itself.
 
-
 ## Declaring a subcomponent
 
 Just like for top-level components, you create a subcomponent by writing an

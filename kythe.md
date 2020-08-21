@@ -16,7 +16,6 @@ Dagger adds the following edges to the Kythe graph:
 -   `/inject/childcomponent` from each [component] to their direct child
     components
 
-
 Because Kythe interfaces well with the [Language Server Protocol], IDE tools
 could be built on top of this (though none have been yet).
 
@@ -30,4 +29,3 @@ could be built on top of this (though none have been yet).
 [modules]: glossary/module.md
 [`@Inject`]: http://docs.oracle.com/javaee/7/api/javax/inject/Inject.html
 [`@Provides`]: https://dagger.dev/api/latest/dagger/Provides.html
-

@@ -18,4 +18,3 @@ These documents have more information about using Dagger …
 
 [javadoc]: https://dagger.dev/api/latest
 [sample code]: https://github.com/google/dagger/tree/master/java/dagger/example/atm
-

@@ -5,7 +5,6 @@ title: Releases and Versioning
 
 The following outlines the strategy for managing versioned releases of Dagger 2.
 
-
 ## Version policy
 
 All versions of Dagger 2 are of the form `2.API.PATCH`.

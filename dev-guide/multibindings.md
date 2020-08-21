@@ -15,7 +15,6 @@ where several modules can contribute individual plugin interface implementations
 so that a central class can use the entire set of plugins. Or you could have
 several modules contribute individual service providers to a map, keyed by name.
 
-
 ## Set multibindings
 
 In order to contribute one element to an injectable multibound set, add an

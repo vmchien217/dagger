@@ -13,7 +13,6 @@ These are some of the questions most commonly asked of the Dagger team.
 In addition to those listed below, be sure to check the highest voted [Dagger 2
 questions on Stack Overflow][dagger-2-stack-overflow].
 
-
 ## [`@Binds`]
 
 ### Why is `@Binds` different from `@Provides`?
@@ -104,7 +103,6 @@ versions of eclipse.  It does not have annotation-processing enabled by
 default. To do this, you must install m2e-apt from the eclipse marketplace,
 and [this blog post has a great walkthrough of how to set it up][m2e-apt].
 
-
 ### IntelliJ + Android Studio
 
 Whether you use Maven or Gradle with IntelliJ or Android Studio, the generated
@@ -119,4 +117,3 @@ as handwritten code. If you experience any weirdness, file a bug!
 [AOP]: https://en.wikipedia.org/wiki/Aspect-oriented_programming
 [m2e-apt]: https://immutables.github.io/apt.html
 [dagger-2-stack-overflow]: https://stackoverflow.com/questions/tagged/dagger-2?sort=votes&pageSize=15
-

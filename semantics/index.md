@@ -3,7 +3,6 @@
 This series of documents describes the semantics of Dagger. It's not intended
 for learning *how* to use Dagger, but rather for *what* Dagger is.
 
-
 -   Core Dagger (this document)
 -   [Advanced Dagger](advanced.md)
 -   [Dagger Producers](producers.md)

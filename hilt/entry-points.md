@@ -28,7 +28,6 @@ in some other type of class.
 
 ## How to use an entry point?
 
-
 ### Create an EntryPoint
 
 To create an entry point, define an interface with an accessor method for each

@@ -47,7 +47,6 @@ class FooTest {...}
 
 ### Using robolectric.properties
 
-
 The Hilt application class can be set globally using the
 `robolectric.properties` file. To set the application, just create the
 `robolectric.properties` file in the appropriate `resources` package, and set

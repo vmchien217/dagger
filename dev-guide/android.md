@@ -86,7 +86,6 @@ the one
 This may be simpler to understand but comes with the downside of having to write
 extra boilerplate manually.
 
-
 The Jetpack and Dagger teams are working together on a
 [new initiative](https://medium.com/androiddevelopers/dependency-injection-guidance-on-android-ads-2019-b0b56d774bc2)
 for Dagger on Android that hopes to be a large shift from the current status
@@ -300,7 +299,6 @@ dependencies {
 }
 ```
 
-
 <a name="when-to-inject"></a>
 
 ## When to inject
@@ -357,4 +355,3 @@ method.
 [ErrorProne]: https://github.com/google/error-prone
 [`HasAndroidInjector`]: https://dagger.dev/api/latest/dagger/android/HasAndroidInjector.html
 [ProGuard]: http://proguard.sourceforge.net/
-

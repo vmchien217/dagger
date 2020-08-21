@@ -38,4 +38,3 @@ plagued reflection-based solutions. More details can be found in
 [Square]: http://square.github.io/
 [stack-overflow]: http://stackoverflow.com/questions/tagged/dagger-2
 [gak]: https://twitter.com/gk5885
-

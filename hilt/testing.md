@@ -413,7 +413,6 @@ annotation from that module with respect to the given test. Hilt does not
 directly support uninstalling individual bindings, but it's effectively possible
 by only including a single binding in a given module.
 
-
 ## Custom test application
 
 Every Hilt test must use a Hilt test application as the Android application

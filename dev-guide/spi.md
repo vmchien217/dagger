@@ -117,4 +117,3 @@ will forward the values to the [`initOptions()`] method.
 [SPI]: https://en.wikipedia.org/wiki/Service_provider_interface
 [`supportedOptions()`]: https://dagger.dev/api/latest/dagger/spi/BindingGraphPlugin.html#supportedOptions--
 [`visitGraph()`]: https://dagger.dev/api/latest/dagger/spi/BindingGraphPlugin.html#visitGraph-dagger.model.BindingGraph-dagger.spi.DiagnosticReporter-
-

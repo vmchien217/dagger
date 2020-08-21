@@ -64,7 +64,6 @@ needs access to all of your modules, the target that compiles your `Application`
 class also needs to have all of your Dagger modules in its transitive
 dependencies.
 
-
 Just like other Hilt [Android entry points](android-entry-point.md),
 Applications are members injected as well. This means you can use injected
 fields in the Application after `super.onCreate()` has been called.
@@ -140,7 +139,6 @@ class MyApplication : MyBaseApplication() {
 ```
 {: .c-codeselector__code .c-codeselector__code_kotlin }
 
-
 For more details, see [Hilt Application](application.md).
 
 ## @AndroidEntryPoint
@@ -160,7 +158,6 @@ ViewModels are not directly supported, but are instead supported by a
 [Jetpack extension](https://developer.android.com/training/dependency-injection/hilt-jetpack).
 The following example shows how to add the annotation to an activity, but the
 process is the same for other types.
-
 
 To enable members injection in your activity, annotate your class with
 [`@AndroidEntryPoint`](https://dagger.dev/api/latest/dagger/hilt/android/AndroidEntryPoint.html).
@@ -205,7 +202,6 @@ not the (now deprecated)
 the Android platform.
 {: .c-callouts__note }
 
-
 For more details, see [@AndroidEntryPoint](android-entry-point.md).
 
 ## Hilt Modules
@@ -236,7 +232,6 @@ Hilt, but this check may be optionally
 **Note:** If a module does not have an `@InstallIn` annotation, the module will
 not be part of the component and may result in compilation errors.
 {: .c-callouts__note }
-
 
 Specify which Hilt Component to install the module in by passing in the
 appropriate [Component](components.md) type(s) to the `@InstallIn` annotation.
