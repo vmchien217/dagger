@@ -16,7 +16,6 @@
 
 package dagger.internal.codegen.kotlin;
 
-import static com.google.auto.common.MoreElements.isAnnotationPresent;
 import static com.google.common.base.Preconditions.checkArgument;
 import static dagger.internal.codegen.base.MoreAnnotationValues.getIntArrayValue;
 import static dagger.internal.codegen.base.MoreAnnotationValues.getIntValue;
@@ -39,18 +38,21 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
-import javax.inject.Inject;
 import javax.lang.model.element.AnnotationMirror;
 import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.util.ElementFilter;
 import kotlin.Metadata;
 import kotlinx.metadata.Flag;
+import kotlinx.metadata.Flag.ValueParameter;
 import kotlinx.metadata.KmClassVisitor;
+import kotlinx.metadata.KmConstructorVisitor;
 import kotlinx.metadata.KmExtensionType;
 import kotlinx.metadata.KmPropertyExtensionVisitor;
 import kotlinx.metadata.KmPropertyVisitor;
+import kotlinx.metadata.KmValueParameterVisitor;
 import kotlinx.metadata.jvm.JvmFieldSignature;
 import kotlinx.metadata.jvm.JvmMethodSignature;
 import kotlinx.metadata.jvm.JvmPropertyExtensionVisitor;
@@ -62,49 +64,156 @@ final class KotlinMetadata {
 
   private final TypeElement typeElement;
 
+  private final KotlinClassMetadata.Class data;
+
   /**
    * Kotlin metadata flag for this class.
    *
    * <p>Use {@link Flag.Class} to apply the right mask and obtain a specific value.
    */
-  private final int flags;
+  private final Supplier<Integer> flags;
 
-  private final Optional<String> companionObjectName;
+  private final Supplier<Optional<String>> companionObjectName;
 
-  // Map that associates @Inject field elements with its Kotlin synthetic method for annotations.
+  private final Supplier<List<Property>> properties;
+
+  private final Supplier<Map<String, Property>> propertyDescriptors;
+
+  private final Supplier<Map<String, ExecutableElement>> methodDescriptors;
+
+  // Map that associates field elements with its Kotlin synthetic method for annotations.
   private final Supplier<Map<VariableElement, Optional<MethodForAnnotations>>>
       elementFieldAnnotationMethodMap;
 
-  private KotlinMetadata(
-      TypeElement typeElement,
-      int flags,
-      Optional<String> companionObjectName,
-      List<Property> properties) {
+  // Map that associates field elements with its Kotlin getter method.
+  private final Supplier<Map<VariableElement, Optional<ExecutableElement>>>
+      elementFieldGetterMethodMap;
+
+  private final Supplier<Boolean> containsConstructorWithDefaultParam;
+
+  private KotlinMetadata(TypeElement typeElement, KotlinClassMetadata.Class data) {
     this.typeElement = typeElement;
-    this.flags = flags;
-    this.companionObjectName = companionObjectName;
+    this.data = data;
+    this.flags = Suppliers.memoize(this::retrieveFlags);
+    this.companionObjectName = Suppliers.memoize(this::retrieveCompanionObjectName);
+    this.properties = Suppliers.memoize(this::retrieveProperties);
+    this.propertyDescriptors =
+        Suppliers.memoize(
+            () ->
+                properties.get().stream()
+                    .filter(property -> property.getFieldSignature().isPresent())
+                    .collect(
+                        Collectors.toMap(
+                            property -> property.getFieldSignature().get(), Function.identity())));
+    this.methodDescriptors =
+        Suppliers.memoize(
+            () ->
+                ElementFilter.methodsIn(typeElement.getEnclosedElements()).stream()
+                    .collect(
+                        Collectors.toMap(
+                            DaggerElements::getMethodDescriptor, Function.identity())));
     this.elementFieldAnnotationMethodMap =
         Suppliers.memoize(
-            () -> {
-              Map<String, Property> propertyDescriptors =
-                  properties.stream()
-                      .filter(property -> property.getFieldSignature().isPresent())
-                      .collect(
-                          Collectors.toMap(
-                              property -> property.getFieldSignature().get(), Function.identity()));
-              Map<String, ExecutableElement> methodDescriptors =
-                  ElementFilter.methodsIn(typeElement.getEnclosedElements()).stream()
-                      .collect(
-                          Collectors.toMap(
-                              DaggerElements::getMethodDescriptor, Function.identity()));
-              return mapFieldToAnnotationMethod(propertyDescriptors, methodDescriptors);
-            });
+            () -> mapFieldToAnnotationMethod(propertyDescriptors.get(), methodDescriptors.get()));
+    this.elementFieldGetterMethodMap =
+        Suppliers.memoize(
+            () -> mapFieldToGetterMethod(propertyDescriptors.get(), methodDescriptors.get()));
+    this.containsConstructorWithDefaultParam =
+        Suppliers.memoize(this::checkConstructorForDefaultParam);
+  }
+
+  private int retrieveFlags() {
+    FlagsVisitor visitor = new FlagsVisitor();
+    data.accept(visitor);
+    return visitor.flags;
+  }
+
+  private static final class FlagsVisitor extends KmClassVisitor {
+
+    int flags;
+
+    @Override
+    public void visit(int flags, String name) {
+      this.flags = flags;
+    }
+  }
+
+  private Optional<String> retrieveCompanionObjectName() {
+    CompanionObjectNameVisitor visitor = new CompanionObjectNameVisitor();
+    data.accept(visitor);
+    return visitor.name;
+  }
+
+  private static final class CompanionObjectNameVisitor extends KmClassVisitor {
+
+    Optional<String> name = Optional.empty();
+
+    @Override
+    public void visitCompanionObject(String name) {
+      this.name = Optional.of(name);
+    }
+  }
+
+  private List<Property> retrieveProperties() {
+    PropertiesVisitor visitor = new PropertiesVisitor();
+    data.accept(visitor);
+    return visitor.properties;
+  }
+
+  private static final class PropertiesVisitor extends KmClassVisitor {
+
+    List<Property> properties = new ArrayList<>();
+
+    @Override
+    public KmPropertyVisitor visitProperty(
+        int flags, String name, int getterFlags, int setterFlags) {
+      return new KmPropertyVisitor() {
+        Optional<String> fieldSignature;
+        Optional<String> getterSignature = Optional.empty();
+        Optional<String> methodForAnnotationsSignature = Optional.empty();
+
+        @Override
+        public KmPropertyExtensionVisitor visitExtensions(KmExtensionType kmExtensionType) {
+          if (!kmExtensionType.equals(JvmPropertyExtensionVisitor.TYPE)) {
+            return null;
+          }
+
+          return new JvmPropertyExtensionVisitor() {
+            @Override
+            public void visit(
+                int jvmFlags,
+                @Nullable JvmFieldSignature jvmFieldSignature,
+                @Nullable JvmMethodSignature jvmGetterSignature,
+                @Nullable JvmMethodSignature jvmSetterSignature) {
+              fieldSignature =
+                  Optional.ofNullable(jvmFieldSignature).map(JvmFieldSignature::asString);
+              getterSignature =
+                  Optional.ofNullable(jvmGetterSignature).map(JvmMethodSignature::asString);
+            }
+
+            @Override
+            public void visitSyntheticMethodForAnnotations(
+                @Nullable JvmMethodSignature methodSignature) {
+              methodForAnnotationsSignature =
+                  Optional.ofNullable(methodSignature).map(JvmMethodSignature::asString);
+            }
+          };
+        }
+
+        @Override
+        public void visitEnd() {
+          properties.add(
+              new Property(
+                  name, flags, fieldSignature, getterSignature, methodForAnnotationsSignature));
+        }
+      };
+    }
   }
 
   private Map<VariableElement, Optional<MethodForAnnotations>> mapFieldToAnnotationMethod(
       Map<String, Property> propertyDescriptors, Map<String, ExecutableElement> methodDescriptors) {
     return ElementFilter.fieldsIn(typeElement.getEnclosedElements()).stream()
-        .filter(field -> isAnnotationPresent(field, Inject.class))
+        .filter(field -> !field.getModifiers().contains(Modifier.STATIC))
         .collect(
             Collectors.toMap(
                 Function.identity(),
@@ -120,6 +229,20 @@ final class KotlinMetadata {
                                     .orElse(MethodForAnnotations.MISSING))));
   }
 
+  private Map<VariableElement, Optional<ExecutableElement>> mapFieldToGetterMethod(
+      Map<String, Property> propertyDescriptors, Map<String, ExecutableElement> methodDescriptors) {
+    return ElementFilter.fieldsIn(typeElement.getEnclosedElements()).stream()
+        .filter(field -> !field.getModifiers().contains(Modifier.STATIC))
+        .collect(
+            Collectors.toMap(
+                Function.identity(),
+                field ->
+                    findProperty(field, propertyDescriptors)
+                        .getGetterMethodSignature()
+                        .flatMap(
+                            signature -> Optional.ofNullable(methodDescriptors.get(signature)))));
+  }
+
   private Property findProperty(VariableElement field, Map<String, Property> propertyDescriptors) {
     String fieldDescriptor = getFieldDescriptor(field);
     if (propertyDescriptors.containsKey(fieldDescriptor)) {
@@ -132,11 +255,34 @@ final class KotlinMetadata {
     }
   }
 
+  private boolean checkConstructorForDefaultParam() {
+    ConstructorWithDefaultParamVisitor visitor = new ConstructorWithDefaultParamVisitor();
+    data.accept(visitor);
+    return visitor.containsConstructorWithDefaultParam;
+  }
+
+  private static final class ConstructorWithDefaultParamVisitor extends KmClassVisitor {
+
+    boolean containsConstructorWithDefaultParam;
+
+    @Override
+    public KmConstructorVisitor visitConstructor(int flags) {
+      return new KmConstructorVisitor() {
+        @Override
+        public KmValueParameterVisitor visitValueParameter(int flags, String name) {
+          containsConstructorWithDefaultParam |=
+              ValueParameter.DECLARES_DEFAULT_VALUE.invoke(flags);
+          return super.visitValueParameter(flags, name);
+        }
+      };
+    }
+  }
+
   TypeElement getTypeElement() {
     return typeElement;
   }
 
-  /** Gets the synthetic method for annotations of a given @Inject annotated field element. */
+  /** Gets the synthetic method for annotations of a given field element. */
   Optional<ExecutableElement> getSyntheticAnnotationMethod(VariableElement fieldElement) {
     checkArgument(elementFieldAnnotationMethodMap.get().containsKey(fieldElement));
     return elementFieldAnnotationMethodMap
@@ -169,12 +315,12 @@ final class KotlinMetadata {
   }
 
   boolean isObjectClass() {
-    return Flag.Class.IS_OBJECT.invoke(flags);
+    return Flag.Class.IS_OBJECT.invoke(flags.get());
   }
 
   /** Returns true if the type element of this metadata is a Kotlin companion object. */
   boolean isCompanionObjectClass() {
-    return Flag.Class.IS_COMPANION_OBJECT.invoke(flags);
+    return Flag.Class.IS_COMPANION_OBJECT.invoke(flags.get());
   }
 
   /**
@@ -183,19 +329,27 @@ final class KotlinMetadata {
    * returns an empty optional.
    */
   Optional<String> getCompanionObjectName() {
-    return companionObjectName;
+    return companionObjectName.get();
   }
 
   boolean isPrivate() {
-    return Flag.IS_PRIVATE.invoke(flags);
+    return Flag.IS_PRIVATE.invoke(flags.get());
+  }
+
+  /** Gets the getter method of a given field element corresponding to a property. */
+  Optional<ExecutableElement> getPropertyGetter(VariableElement fieldElement) {
+    checkArgument(elementFieldGetterMethodMap.get().containsKey(fieldElement));
+    return elementFieldGetterMethodMap.get().get(fieldElement);
+  }
+
+  /** Returns true if any constructor of the defined a default parameter. */
+  public boolean containsConstructorWithDefaultParam() {
+    return containsConstructorWithDefaultParam.get();
   }
 
   /** Parse Kotlin class metadata from a given type element * */
   static KotlinMetadata from(TypeElement typeElement) {
-    MetadataVisitor visitor = new MetadataVisitor();
-    metadataOf(typeElement).accept(visitor);
-    return new KotlinMetadata(
-        typeElement, visitor.classFlags, visitor.companionObjectName, visitor.classProperties);
+    return new KotlinMetadata(typeElement, metadataOf(typeElement));
   }
 
   private static KotlinClassMetadata.Class metadataOf(TypeElement typeElement) {
@@ -226,80 +380,25 @@ final class KotlinMetadata {
     }
   }
 
-  private static final class MetadataVisitor extends KmClassVisitor {
-
-    int classFlags;
-    Optional<String> companionObjectName = Optional.empty();
-    List<Property> classProperties = new ArrayList<>();
-
-    @Override
-    public void visit(int flags, String s) {
-      this.classFlags = flags;
-    }
-
-    @Override
-    public void visitCompanionObject(@Nullable String companionObjectName) {
-      this.companionObjectName = Optional.ofNullable(companionObjectName);
-    }
-
-    @Override
-    public KmPropertyVisitor visitProperty(
-        int flags, String name, int getterFlags, int setterFlags) {
-      return new KmPropertyVisitor() {
-        Optional<String> fieldSignature;
-        Optional<String> methodForAnnotationsSignature = Optional.empty();
-
-        @Override
-        public KmPropertyExtensionVisitor visitExtensions(KmExtensionType kmExtensionType) {
-          if (!kmExtensionType.equals(JvmPropertyExtensionVisitor.TYPE)) {
-            return null;
-          }
-
-          return new JvmPropertyExtensionVisitor() {
-            @Override
-            public void visit(
-                int jvmFlags,
-                @Nullable JvmFieldSignature jvmFieldSignature,
-                @Nullable JvmMethodSignature getterSignature,
-                @Nullable JvmMethodSignature setterSignature) {
-              fieldSignature =
-                  Optional.ofNullable(jvmFieldSignature).map(JvmFieldSignature::asString);
-            }
-
-            @Override
-            public void visitSyntheticMethodForAnnotations(
-                @Nullable JvmMethodSignature methodSignature) {
-              methodForAnnotationsSignature =
-                  Optional.ofNullable(methodSignature).map(JvmMethodSignature::asString);
-            }
-          };
-        }
-
-        @Override
-        public void visitEnd() {
-          classProperties.add(
-              new Property(name, flags, fieldSignature, methodForAnnotationsSignature));
-        }
-      };
-    }
-  }
-
   /* Data class representing Kotlin Property Metadata */
   private static final class Property {
 
     private final String name;
     private final int flags;
     private final Optional<String> fieldSignature;
+    private final Optional<String> getterSignature;
     private final Optional<String> methodForAnnotationsSignature;
 
     Property(
         String name,
         int flags,
         Optional<String> fieldSignature,
+        Optional<String> getterSignature,
         Optional<String> methodForAnnotationsSignature) {
       this.name = name;
       this.flags = flags;
       this.fieldSignature = fieldSignature;
+      this.getterSignature = getterSignature;
       this.methodForAnnotationsSignature = methodForAnnotationsSignature;
     }
 
@@ -320,6 +419,10 @@ final class KotlinMetadata {
     /** Returns the JVM field descriptor of the backing field of this property. */
     Optional<String> getFieldSignature() {
       return fieldSignature;
+    }
+
+    Optional<String> getGetterMethodSignature() {
+      return getterSignature;
     }
 
     /** Returns JVM method descriptor of the synthetic method for property annotations. */

@@ -30,12 +30,12 @@ import com.squareup.javapoet.TypeName;
 import dagger.hilt.processor.internal.ClassNames;
 import dagger.hilt.processor.internal.ComponentDescriptor;
 import dagger.hilt.processor.internal.ComponentTree;
-import dagger.hilt.processor.internal.KotlinMetadata;
+import dagger.hilt.processor.internal.KotlinMetadataUtils;
 import dagger.hilt.processor.internal.Processors;
 import dagger.hilt.processor.internal.aggregateddeps.ComponentDependencies;
 import dagger.hilt.processor.internal.aliasof.AliasOfs;
+import dagger.internal.codegen.kotlin.KotlinMetadataUtil;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
@@ -194,11 +194,9 @@ public final class RootMetadata {
   }
 
   private static boolean daggerCanConstruct(TypeElement type) {
-    Optional<KotlinMetadata> kotlinMetadata = KotlinMetadata.of(type);
+    KotlinMetadataUtil metadataUtil = KotlinMetadataUtils.getMetadataUtil();
     boolean isKotlinObject =
-        kotlinMetadata
-            .map(metadata -> metadata.isObjectClass() || metadata.isCompanionObjectClass())
-            .orElse(false);
+        metadataUtil.isObjectClass(type) || metadataUtil.isCompanionObjectClass(type);
     if (isKotlinObject) {
       // Treat Kotlin object modules as if Dagger can construct them (it technically can't, but it
       // doesn't need to as it can use them since all their provision methods are static).

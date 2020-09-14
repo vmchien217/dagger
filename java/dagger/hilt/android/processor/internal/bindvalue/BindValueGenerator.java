@@ -131,7 +131,11 @@ final class BindValueGenerator {
             .addModifiers(Modifier.STATIC)
             .returns(ClassName.get(bindValue.variableElement().asType()));
 
-    if (bindValue.variableElement().getModifiers().contains(Modifier.STATIC)) {
+    if (bindValue.getterElement().isPresent()) {
+      builder
+          .addParameter(testClassName, "test")
+          .addStatement("return test.$L()", bindValue.getterElement().get().getSimpleName());
+    } else if (bindValue.variableElement().getModifiers().contains(Modifier.STATIC)) {
       builder.addStatement(
           "return $T.$L", testClassName, bindValue.variableElement().getSimpleName());
     } else {

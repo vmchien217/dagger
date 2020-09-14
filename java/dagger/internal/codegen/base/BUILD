@@ -19,12 +19,23 @@ load("@rules_java//java:defs.bzl", "java_library")
 
 package(default_visibility = ["//:src"])
 
+SHARED_SOURCES = [
+    "ClearableCache.java",
+    "MoreAnnotationMirrors.java",
+    "MoreAnnotationValues.java",
+]
+
 java_library(
     name = "base",
-    srcs = glob(["*.java"]),
+    srcs = glob(
+        ["*.java"],
+        exclude = SHARED_SOURCES,
+    ),
     plugins = ["//java/dagger/internal/codegen/bootstrap"],
     tags = ["maven:merged"],
+    exports = [":shared"],
     deps = [
+        ":shared",
         "//java/dagger:core",
         "//java/dagger/internal/codegen/extension",
         "//java/dagger/internal/codegen/javapoet",
@@ -37,6 +48,18 @@ java_library(
         "@google_bazel_common//third_party/java/auto:value",
         "@google_bazel_common//third_party/java/javapoet",
         "@google_bazel_common//third_party/java/jsr330_inject",
+        "@maven//:com_google_auto_auto_common",
+    ],
+)
+
+java_library(
+    name = "shared",
+    srcs = SHARED_SOURCES,
+    tags = ["maven:merged"],
+    deps = [
+        "//java/dagger/internal/codegen/extension",
+        "//java/dagger/internal/guava:base",
+        "//java/dagger/internal/guava:collect",
         "@maven//:com_google_auto_auto_common",
     ],
 )

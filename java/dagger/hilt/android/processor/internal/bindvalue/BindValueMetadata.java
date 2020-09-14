@@ -18,19 +18,23 @@ package dagger.hilt.android.processor.internal.bindvalue;
 
 import static dagger.internal.codegen.extension.DaggerStreams.toImmutableList;
 
+import com.google.auto.common.MoreElements;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.squareup.javapoet.ClassName;
 import dagger.hilt.processor.internal.ClassNames;
+import dagger.hilt.processor.internal.KotlinMetadataUtils;
 import dagger.hilt.processor.internal.ProcessorErrors;
 import dagger.hilt.processor.internal.Processors;
+import dagger.internal.codegen.kotlin.KotlinMetadataUtil;
 import java.util.Collection;
 import java.util.Optional;
 import javax.inject.Inject;
 import javax.lang.model.element.AnnotationMirror;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
+import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
@@ -80,6 +84,8 @@ abstract class BindValueMetadata {
 
     abstract Optional<AnnotationMirror> mapKey();
 
+    abstract Optional<ExecutableElement> getterElement();
+
     static BindValueElement create(Element element) {
       ImmutableList<ClassName> bindValues = BindValueProcessor.getBindValueAnnotations(element);
       ProcessorErrors.checkState(
@@ -97,12 +103,26 @@ abstract class BindValueMetadata {
           annotationClassName.simpleName(),
           element);
 
-      ProcessorErrors.checkState(
-          !element.getModifiers().contains(Modifier.PRIVATE),
-          element,
-          "@%s fields cannot be private. Found: %s",
-          annotationClassName.simpleName(),
-          element);
+      KotlinMetadataUtil metadataUtil = KotlinMetadataUtils.getMetadataUtil();
+      Optional<ExecutableElement> propertyGetter =
+          metadataUtil.hasMetadata(element)
+              ? metadataUtil.getPropertyGetter(MoreElements.asVariable(element))
+              : Optional.empty();
+      if (propertyGetter.isPresent()) {
+        ProcessorErrors.checkState(
+            !propertyGetter.get().getModifiers().contains(Modifier.PRIVATE),
+            element,
+            "@%s field getter cannot be private. Found: %s",
+            annotationClassName.simpleName(),
+            element);
+      } else {
+        ProcessorErrors.checkState(
+            !element.getModifiers().contains(Modifier.PRIVATE),
+            element,
+            "@%s fields cannot be private. Found: %s",
+            annotationClassName.simpleName(),
+            element);
+      }
 
       ProcessorErrors.checkState(
           !Processors.hasAnnotation(element, Inject.class),
@@ -151,7 +171,8 @@ abstract class BindValueMetadata {
           qualifiers.isEmpty()
               ? Optional.<AnnotationMirror>empty()
               : Optional.<AnnotationMirror>of(qualifiers.get(0)),
-          optionalMapKeys);
+          optionalMapKeys,
+          propertyGetter);
     }
   }
 }

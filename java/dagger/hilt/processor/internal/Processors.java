@@ -17,15 +17,18 @@
 package dagger.hilt.processor.internal;
 
 import static com.google.auto.common.MoreElements.asPackage;
+import static com.google.auto.common.MoreElements.asVariable;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static dagger.internal.codegen.extension.DaggerCollectors.toOptional;
 import static javax.lang.model.element.Modifier.ABSTRACT;
 import static javax.lang.model.element.Modifier.STATIC;
 
+import com.google.auto.common.AnnotationMirrors;
 import com.google.auto.common.GeneratedAnnotations;
 import com.google.auto.common.MoreElements;
 import com.google.auto.common.MoreTypes;
 import com.google.common.base.CaseFormat;
+import com.google.common.base.Equivalence.Wrapper;
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.FluentIterable;
@@ -43,6 +46,8 @@ import com.squareup.javapoet.ParameterSpec;
 import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
+import dagger.internal.codegen.extension.DaggerStreams;
+import dagger.internal.codegen.kotlin.KotlinMetadataUtil;
 import java.lang.annotation.Annotation;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -50,8 +55,10 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.RoundEnvironment;
+import javax.inject.Qualifier;
 import javax.lang.model.element.AnnotationMirror;
 import javax.lang.model.element.AnnotationValue;
 import javax.lang.model.element.Element;
@@ -726,7 +733,26 @@ public final class Processors {
 
   /** Returns Qualifier annotated annotations found on an element. */
   public static ImmutableList<AnnotationMirror> getQualifierAnnotations(Element element) {
-    return getAnnotationsAnnotatedWith(element, ClassNames.QUALIFIER);
+    ImmutableSet<? extends AnnotationMirror> qualifiers =
+        AnnotationMirrors.getAnnotatedAnnotations(element, Qualifier.class);
+    KotlinMetadataUtil metadataUtil = KotlinMetadataUtils.getMetadataUtil();
+    // TODO(user): Apply an additional check to verify field element has a @BindValue
+    if (element.getKind() == ElementKind.FIELD && metadataUtil.hasMetadata(element)) {
+      VariableElement fieldElement = asVariable(element);
+      return Stream.concat(
+              qualifiers.stream(),
+              metadataUtil.isMissingSyntheticPropertyForAnnotations(fieldElement)
+                  ? Stream.empty()
+                  : metadataUtil
+                      .getSyntheticPropertyAnnotations(fieldElement, Qualifier.class)
+                      .stream())
+          .map(AnnotationMirrors.equivalence()::wrap)
+          .distinct()
+          .map(Wrapper::get)
+          .collect(DaggerStreams.toImmutableList());
+    } else {
+      return ImmutableList.copyOf(qualifiers);
+    }
   }
 
   /** Returns Scope annotated annotations found on an element. */

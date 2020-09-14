@@ -35,9 +35,10 @@ import dagger.hilt.android.processor.internal.AndroidClassNames;
 import dagger.hilt.processor.internal.BadInputException;
 import dagger.hilt.processor.internal.ClassNames;
 import dagger.hilt.processor.internal.Components;
-import dagger.hilt.processor.internal.KotlinMetadata;
+import dagger.hilt.processor.internal.KotlinMetadataUtils;
 import dagger.hilt.processor.internal.ProcessorErrors;
 import dagger.hilt.processor.internal.Processors;
+import dagger.internal.codegen.kotlin.KotlinMetadataUtil;
 import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -251,11 +252,10 @@ public abstract class AndroidEntryPointMetadata {
       // If this AndroidEntryPoint is a Kotlin class and its base type is also Kotlin and has
       // default values declared in its constructor then error out because for the short-form
       // usage of @AndroidEntryPoint the bytecode transformation will be done incorrectly.
+      KotlinMetadataUtil metadataUtil = KotlinMetadataUtils.getMetadataUtil();
       ProcessorErrors.checkState(
-          !KotlinMetadata.of(androidEntryPointElement).isPresent()
-              || !KotlinMetadata.of(baseElement)
-                  .map(KotlinMetadata::containsConstructorWithDefaultParam)
-                  .orElse(false),
+          !metadataUtil.hasMetadata(androidEntryPointElement)
+              || !metadataUtil.containsConstructorWithDefaultParam(baseElement),
           baseElement,
           "The base class, '%s', of the @AndroidEntryPoint, '%s', contains a constructor with "
               + "default parameters. This is currently not supported by the Gradle plugin. Either "
