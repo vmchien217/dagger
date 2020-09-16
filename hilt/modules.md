@@ -93,7 +93,7 @@ In addition, each component has bindings that are available to it by default.
 For example, the `SingletonComponent` component provides the `Application`
 binding:
 
-<!-- TODO(user): Change this to @ApplicationContext Application when that
+<!-- TODO(erichang): Change this to @ApplicationContext Application when that
      is added in -->
 
 <div class="c-codeselector__button c-codeselector__button_java">Java</div>
@@ -154,7 +154,7 @@ that module will be installed in the appropriate component for your app. This
 makes configuration as easy as defining a different build target and pulling
 different deps into your binary definition.
 
-<!-- TODO(user): Discuss source sets for Gradle -->
+<!-- TODO(erichang): Discuss source sets for Gradle -->
 
 ## Bazel: Organizing your BUILD files {#organizing-build-files}
 
